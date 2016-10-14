@@ -1,0 +1,30 @@
+{
+  "name": "wage-gap-calculator",
+  "version": "1.0.0",
+  "description": "create graphs to show wage disparities among various groups",
+  "scripts": {
+    "start": "./node_modules/.bin/nodemon server/index.js --ignore client/"
+  },
+  "author": "Brett Nelson, Zach Raymer, Calvin Kniffin, Christian Straubhaar-Jones",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "body-parser": "^1.15.2",
+    "chai": "^3.5.0",
+    "d3": "^3.5.17",
+    "express": "^4.14.0",
+    "mocha": "^3.1.2",
+    "pg": "^6.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/calkniffin/wage-gap-calculator.git"
+  },
+  "devDependencies": {
+    "css-loader": "^0.25.0",
+    "nodemon": "^1.11.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2"
+  }
+}
