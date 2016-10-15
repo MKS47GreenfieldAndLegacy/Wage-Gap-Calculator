@@ -3,11 +3,19 @@
   <head>
   <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Wage Gap Calculator</title>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+    <script src="scripts/index.js"></script>
+
   </head>
 
-  <body>
+  <body ui-view ng-app="wageGap">
 
-    <aside class="sidebar"></aside>
+    <aside class="sidebar">
+      <a ui-sref="landing.bargraph">Bar Graph</a>
+      <a ui-sref="landing.statesgraph">States Graph</a>
+      <ui-view class=""></ui-view>
+    </aside>
     <div class="main">Hello Champions!!</div>
 
   </body>

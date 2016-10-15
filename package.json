@@ -8,8 +8,6 @@
   "author": "Brett Nelson, Zach Raymer, Calvin Kniffin, Christian Straubhaar-Jones",
   "license": "UNLICENSED",
   "dependencies": {
-    "angular": "^1.5.8",
-    "angular-route": "^1.5.8",
     "body-parser": "^1.15.2",
     "chai": "^3.5.0",
     "d3": "^3.5.17",
@@ -22,6 +20,8 @@
     "url": "git://github.com/calkniffin/wage-gap-calculator.git"
   },
   "devDependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
     "css-loader": "^0.25.0",
     "nodemon": "^1.11.0",
     "style-loader": "^0.13.1",
