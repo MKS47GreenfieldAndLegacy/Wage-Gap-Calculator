@@ -13,11 +13,9 @@
     "d3": "^3.5.17",
     "express": "^4.14.0",
     "mocha": "^3.1.2",
-<<<<<<< bce1114cb2c3757fa669b8fb91648dc5205b21c2
     "mongodb": "^2.2.10",
     "pg": "^6.1.0",
     "request": "^2.75.0"
->>>>>>> add request dependency
   },
   "repository": {
     "type": "git",
