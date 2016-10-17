@@ -1,10 +1,34 @@
-<div class="variables-choices">
-  <div class="checkboxes">
-    <p>Choose Your Attributes to Compare:</p>
-    <label><input type="checkbox" name="Age" value="age"/>Age</label>
-    <label><input type="checkbox" name="Gender" value="gender"/>Gender</label>
-    <label><input type="checkbox" name="Location" value="location" disabled="disabled"/>Location</label>
-    <label><input type="checkbox" name="Occupation" value="occupation"/>Occupation</label>
-    <label><input type="checkbox" name="Race" value="race"/>Race</label>
+<div>
+  <div class="checkboxes" class="variables-choices">
+    <fieldset class="variables">
+      <legend>Choose Attributes to Compare:</legend>
+      <div ng-repeat="variable in data.potentials">
+        <label>{{variable}}<input type="checkbox" ng-checked="exists(variable, data.selected)" ng-click="toggle(variable, data.selected)"/></label>
+      </div>
+    </fieldset>
+    <label>How many people do you wish to compare?
+      <select
+        ng-model="data.profilesnum"
+        ng-change="initializeProfiles()"
+        required="true"
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+    </label>
+  </div>
+  <div class="selects">
+    <h5>Choose your values:</h5>
+    <div ng-repeat="person in data.profiles">
+      <fieldset class="values">
+        <legend>Person {{person.number}}</legend>
+        <div ng-repeat="variable in data.selected">
+          <label>{{variable}}<select ng-model="person[variable]" ng-options="option as option for option in data.options[variable]"></select></label>
+        </div>
+      </fieldset>
+    </div>
+
   </div>
 </div>

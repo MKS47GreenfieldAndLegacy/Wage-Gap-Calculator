@@ -1,9 +1,22 @@
 .main {
   color: red;
   float: right;
+  width: 69%;
+  display: inline-block;
 }
-.aside{
+aside.sidebar{
   float: left;
   height: 100vh;
   border: 2px solid grey;
+  width: 30%;
+  display: inline-block;
+}
+label{
+  display: block;
+}
+fieldset{
+  max-width: 100%;
+}
+select{
+  overflow: scroll;
 }

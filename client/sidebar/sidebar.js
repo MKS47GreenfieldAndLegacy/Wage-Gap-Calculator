@@ -1,4 +1,4 @@
 angular.module('wageGap.sidebar', [])
-.controller('SidebarController', function ($scope, Sidebar) {
+.controller('SidebarController', function ($scope) {
 
 });
