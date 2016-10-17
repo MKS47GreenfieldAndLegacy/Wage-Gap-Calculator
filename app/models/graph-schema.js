@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var db = require('./config.js')
 
 //creates a schema for all data to be put in the database
 var graphSchema = mongoose.Schema({
@@ -11,7 +12,9 @@ var graphSchema = mongoose.Schema({
   //occupation optional
   occupation: String,
   //race optional
-  race: String
+  race: String,
+  //age optional
+  age: Number,
 });
 
 var Graph = mongoose.model('Graph', graphSchema);
