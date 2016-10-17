@@ -37,6 +37,11 @@ db.Graph.insert({
   income: 46435
 })
 db.Graph.insert({
+  location: 'Delaware',
+  gender: 'Male',
+  income: 40025
+})
+db.Graph.insert({
   location: 'DC',
   gender: 'Male',
   income: 52337
@@ -89,6 +94,11 @@ db.Graph.insert({
 db.Graph.insert({
   location: 'Louisiana',
   gender: 'Male',
+  income: 37630
+})
+db.Graph.insert({
+  location: 'Maine',
+  gender: 'Male',
   income: 34492
 })
 db.Graph.insert({
@@ -104,7 +114,7 @@ db.Graph.insert({
 db.Graph.insert({
   location: 'Michigan',
   gender: 'Male',
-  income: 3639
+  income: 36390
 })
 db.Graph.insert({
   location: 'Minnesota',
@@ -287,6 +297,11 @@ db.Graph.insert({
   income: 45201
 })
 db.Graph.insert({
+  location: 'Delaware',
+  gender: 'Female',
+  income: 30711
+})
+db.Graph.insert({
   location: 'Florida',
   gender: 'Female',
   income: 25328
@@ -337,9 +352,14 @@ db.Graph.insert({
   income: 23460
 })
 db.Graph.insert({
-  location: 'Maryland',
+  location: 'Maine',
   gender: 'Female',
   income: 25045
+})
+db.Graph.insert({
+  location: 'Maryland',
+  gender: 'Female',
+  income: 35647
 })
 db.Graph.insert({
   location: 'Massachusetts',
