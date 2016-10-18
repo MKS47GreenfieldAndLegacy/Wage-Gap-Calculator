@@ -3,41 +3,66 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var fs = require('fs');
 var request = require('request');
+var mongoose = require('mongoose');
+var db = require('../app/models/config.js');
+var Graph = require('../app/models/graph-schema.js')
 
 var app = express();
 module.exports = app;
+
+mongoose.connect('mongodb://localhost/wagegap');
 
 app.use(bodyParser.json());
 app.use(express.static('client'));
 
 
-	// not sure if i need this or if express.static covers it ???
-	// app.get('/', function(req, res) {
-	//   res.sendFile(path.join(__dirname, '../client/index.html'));
-	// });
-
-	// not sure if i need a post yet ???
-	// app.post('/data/cache', function(req, res) {
-	// 	// use req.body to send objects to db
-	// 	// res.sendStatus(200);
-	// })
+// not sure if i need this or if express.static covers it ???
+// app.get('/', function(req, res) {
+//   res.sendFile(path.join(__dirname, '../client/index.html'));
+// });
 
 
-// handle front-end get request
-// check for querystring in db
-	// if it exists, return relevant cache
-	// else call api
-		// then send data to front-end
-		// and send data to db to cache
-app.get('/data', function(req, res) {	
+// occupation/gender | location/gender | race/gender
+// collection = Graph
+app.get('/graph', function(req, res) {
 
-  request('http://api.census.gov/data/2015/acs1?get=NAME,B20002_003E&for=state:*', function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    console.log(body)
-  }
+	var query = req.body;
+
+	// if (req.body.firstname) {
+	//     query.firstname = req.body.firstname;
+	// }
+
+	// if (req.body.lastname) {
+	//     query.lastname = req.body.lastname;
+	// }
+
+
+	Graph.find(query, function(err))
+		.then(function(item) {
+			return item.income
+		})
+
+		
+
 })
 
-})
+
+
+// ORIGINAL API GET REQUEST HANDLER
+// app.get('/data', function(req, res) {	
+// // handle front-end get request
+// // check for querystring in db
+// 	// if it exists, return relevant cache
+// 	// else call api
+// 		// here's basic format for api call
+// 		  request('http://api.census.gov/data/2015/acs1?get=NAME,B20002_003E&for=state:*', function (error, response, body) {
+// 			  if (!error && response.statusCode == 200) {
+// 			    console.log(body)
+// 		  	}
+// 		  })
+// 		// then send data to front-end
+// 		// and send data to db to cache
+// })
 
 
 var port = process.env.PORT || 4040;
@@ -46,14 +71,7 @@ console.log('Listening on port', port);
 
 
 // --------------------------------------------
-// var knex = require('knex');
 
-// var knex = require('knex')({
-//   client: 'sqlite3',
-//   connection: {
-//     filename: './github-fetcher.sqlite3'
-//   }
-// });
 
 // app.post('/repos/import', function (req, res) {
 //   // TODO
@@ -66,6 +84,7 @@ console.log('Listening on port', port);
 //   res.sendStatus(200)
 // });
 
+
 // app.get('/repos', function (req, res) {
 //   knex('repos').orderBy('stargazers', 'desc')
 //     .then(function(data) {
@@ -73,9 +92,3 @@ console.log('Listening on port', port);
 //       res.end(data);
 //      })
 // });
-
-
-
-
-
-
