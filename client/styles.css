@@ -34,3 +34,25 @@ select{
 .profilesnum{
   width: 20%;
 }
+.axis path, .axis line
+{
+    fill: none;
+    stroke: #777;
+    shape-rendering: crispEdges;
+}
+
+.axis text
+{
+    font-family: 'Arial';
+    font-size: 13px;
+}
+
+.bar {
+  color: black;
+  font-size: 25px;
+  display: inline-block;
+  margin-top: 40px;
+  font-family: 'Arial';
+  text-align: center;
+}
+

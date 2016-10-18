@@ -23,7 +23,7 @@
     'y': 62.22
   }];
 
-  var vis = d3.select('.main')
+  var vis = d3.select('.bar')
     .append('svg')
     .attr('width', 1000)
     .attr('height', 500)
@@ -70,7 +70,16 @@
   vis.append('svg:g')
     .attr('class', 'y axis')
     .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
+    .call(yAxis)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr('x', -25)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Percent of Male Income");
     .call(yAxis);
+
   
 
   vis.selectAll('rect')
@@ -89,5 +98,5 @@
     })
     .attr('fill', '#ff6666');
 
-    
+
 
