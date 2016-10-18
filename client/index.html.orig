@@ -14,14 +14,16 @@
 
   </head>
 
-  <body ng-app="wageGap" ui-view>
+  <body ng-app="wageGap">
 
     <aside class="sidebar">
       <a ui-sref="home.bargraph">Bar Graph</a>
       <a ui-sref="home.statesgraph">States Graph</a>
-      <ui-view class="sidebar">
-        <h1>Welcome to the Wage Gap Calcuator and Graph Builder!</h1>
-      </ui-view>
+<<<<<<< 637a6b4737b8a9599f7420ab4c8d154124abb0e4
+      <ui-view class="sidebar"></ui-view>
+=======
+      <ui-view class=""></ui-view>
+>>>>>>> rendering tabs (super basically)
     </aside>
     <div class="main">Hello Champions!!</div>
 

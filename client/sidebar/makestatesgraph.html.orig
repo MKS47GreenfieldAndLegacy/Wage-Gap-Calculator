@@ -1,7 +1,7 @@
 <div>
   <div class="checkboxes" class="variables-choices">
     <fieldset class="variables">
-      <legend>Choose extra attribute to compare (gender included in all):</legend>
+      <legend>Choose Attributes to Compare:</legend>
       <div ng-repeat="variable in data.potentials">
         <label>{{variable}}<input type="checkbox" ng-checked="exists(variable, data.selected)" ng-click="toggle(variable, data.selected)"/></label>
       </div>
@@ -11,7 +11,6 @@
         ng-model="data.profilesnum"
         ng-change="initializeProfiles()"
         required="true"
-        class="profilesnum"
       >
         <option value="1">1</option>
         <option value="2">2</option>
@@ -26,7 +25,11 @@
       <fieldset class="values">
         <legend>Person {{person.number}}</legend>
         <div ng-repeat="variable in data.selected">
+<<<<<<< 1c7b64562340f7e9b8ccc6ed602dd3adb8502773
           <label>{{variable}}<select ng-model="person[variable]" ng-options="option as option for option in data.options[variable]"></select></label>
+=======
+          <label>{{variable}}<select ng-model="person.variable" ng-options="option as option for option in data.options[variable]"></select></label>
+>>>>>>> profile selects loading proper options
         </div>
       </fieldset>
     </div>

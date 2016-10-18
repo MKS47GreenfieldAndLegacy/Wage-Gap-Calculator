@@ -2,10 +2,10 @@
 //since they share so much code in common
 
 angular.module('wageGap.makestatesgraph', [])
-.controller('MakeStatesGraphController', ['$scope', function ($scope) {
+.controller('MakeStatesGraphController', function ($scope) {
 
   $scope.data = {
-    selected: [],
+    selected: ['Gender'],
     potentials: [
       // 'Age',//leaving out age to decrease the number of necessary API variables for basic skeleton
       'Gender',
@@ -18,26 +18,36 @@ angular.module('wageGap.makestatesgraph', [])
       // age: ['15-19','20-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-65'],
       Gender: ['Male', 'Female'],
       Occupation: [
-        'Agriculture, Forestry, Fishing, and Hunting, and Mining',
-        'Construction',
-        'Manufacturing',
-        'Wholesale Trade',
-        'Retail Trade',
-        'Transportation and Warehousing and Utilities',
-        'Information',
-        'Finance and Insurance, and Real Estate, and Rental and Leasing',
-        'Professional, Scientific, and Management, and Administrative, and Waste Management Services',
-        'Educational Services, and Health Care and Social Assistance',
-        'Arts, Entertainment, and Recreation, and Accommodation and Food Services',
-        'Other Services, Except Public Administration',
-        'Public Administration',
-        'Military'
+        'Management occupations',
+        'Business and financial operations occupations',
+        'Computer and mathematical occupations',
+        'Architecture and engineering occupations',
+        'Life, physical, and social science occupations',
+        'Community and social services occupations',
+        'Legal occupations',
+        'Education, training, and library occupations',
+        'Arts, design, entertainment, sports, and media occupations',
+        'Healthcare practitioner and technical occupations',
+        'Healthcare support occupations',
+        'Protective service occupations',
+        'Food preparation and serving related occupations',
+        'Building and grounds cleaning and maintenance occupations',
+        'Personal care and service occupations',
+        'Sales and related occupations',
+        'Office and administrative support occupations',
+        'Farming, fishing, and forestry occupations',
+        'Construction and extraction occupations',
+        'Installation, maintenance, and repair occupations',
+        'Production occupations',
+        'Transportation occupations',
+        'Material moving occupations'
       ],
-      Race: ['White','African-American/Black','American Indian/Alaskan Native','Asian','Pacific Islander','Latino']
+      Race: ['White','African-American/Black','American Indian/Alaskan Native','Asian','Pacific Islander','Latino','Other']
     }
   };
 
   //initializes empty profiles with selected variables on choosing the number of people to compare
+  //TODO: make it so that they don't empty out already filled out profiles when they add more
   $scope.initializeProfiles = function () {
     $scope.data.profiles = [];
     for(var i = 0; i < Number($scope.data.profilesnum); i++){
@@ -52,11 +62,13 @@ angular.module('wageGap.makestatesgraph', [])
 
   //toggles checkboxes
   $scope.toggle = function (item, list) {
-    var i = list.indexOf(item);
-    if(i > -1){
-      list.splice(i, 1);
-    } else {
-      list.push(item);
+    if(item !== 'Gender'){
+      var i = list.indexOf(item);
+      if(i > -1){
+        list.splice(i, 1);
+      } else {
+        list.push(item);
+      }
     }
   };
 

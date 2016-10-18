@@ -12,6 +12,12 @@
     "chai": "^3.5.0",
     "d3": "^3.5.17",
     "express": "^4.14.0",
+<<<<<<< e7e94f5ca7a3c212e41b3b52bfdd518386442095
+=======
+    "mocha": "^3.1.2",
+    "mongodb": "^2.2.10",
+    "request": "^2.75.0",
+>>>>>>> basic sidebar selects all working, now adding options for occupation
     "mocha": "^3.1.2"
   },
   "repository": {

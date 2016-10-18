@@ -1,7 +1,7 @@
 <div>
   <div class="checkboxes" class="variables-choices">
     <fieldset class="variables">
-      <legend>Choose Attributes to Compare:</legend>
+      <legend>Choose extra attribute to compare (gender included in all):</legend>
       <div ng-repeat="variable in data.potentials">
         <label>{{variable}}<input type="checkbox" ng-checked="exists(variable, data.selected)" ng-click="toggle(variable, data.selected)"/></label>
       </div>
@@ -11,6 +11,7 @@
         ng-model="data.profilesnum"
         ng-change="initializeProfiles()"
         required="true"
+        class="profilesnum"
       >
         <option value="1">1</option>
         <option value="2">2</option>

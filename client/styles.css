@@ -11,12 +11,26 @@ aside.sidebar{
   width: 30%;
   display: inline-block;
 }
-label{
-  display: block;
+
+fieldset{
+  max-width: 100%;
+}
+select{
+  overflow: scroll;
 }
 fieldset{
   max-width: 100%;
 }
 select{
   overflow: scroll;
+}
+fieldset{
+  max-width: 100%;
+}
+select{
+  text-overflow: ellipsis;
+  width: 90%;
+}
+.profilesnum{
+  width: 20%;
 }
