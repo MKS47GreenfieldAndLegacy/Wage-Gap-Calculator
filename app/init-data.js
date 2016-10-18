@@ -1,513 +1,809 @@
 var mongoose = require('mongoose')
 var db = require('./models/graph-schema');
 // Initialize the database with static data for basic graphs on front page
+
 db.Graph.insert({
   location: 'Alabama',
-  gender: 'Male',
-  income: 34804
+  income: 34804,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Alaska',
-  gender: 'Male',
-  income: 41430
+  income: 41430,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Arizona',
-  gender: 'Male',
-  income: 32726
+  income: 32726,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Arkansas',
-  gender: 'Male',
-  income: 31104
+  income: 31104,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'California',
-  gender: 'Male',
-  income: 36556
+  income: 36556,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Colorado',
-  gender: 'Male',
-  income: 40816
+  income: 40816,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Connecticut',
-  gender: 'Male',
-  income: 46435
+  income: 46435,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Delaware',
-  gender: 'Male',
-  income: 40025
+  income: 40025,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'DC',
-  gender: 'Male',
-  income: 52337
+  income: 52337,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Florida',
-  gender: 'Male',
-  income: 31441
+  income: 31441,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Georgia',
-  gender: 'Male',
-  income: 35154
+  income: 35154,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Hawaii',
-  gender: 'Male',
-  income: 38276
+  income: 38276,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Idaho',
-  gender: 'Male',
-  income: 32036
+  income: 32036,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Illinois',
-  gender: 'Male',
-  income: 40856
+  income: 40856,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Indiana',
-  gender: 'Male',
-  income: 36454
+  income: 36454,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Iowa',
-  gender: 'Male',
-  income: 37901
+  income: 37901,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Kansas',
-  gender: 'Male',
-  income: 37240
+  income: 37240,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Kentucky',
-  gender: 'Male',
-  income: 32295
+  income: 32295,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Louisiana',
-  gender: 'Male',
-  income: 37630
+  income: 37630,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Maine',
-  gender: 'Male',
-  income: 34492
+  income: 34492,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Maryland',
-  gender: 'Male',
-  income: 46509
+  income: 46509,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Massachusetts',
-  gender: 'Male',
-  income: 45792
+  income: 45792,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Michigan',
-  gender: 'Male',
-  income: 36390
+  income: 36390,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Minnesota',
-  gender: 'Male',
-  income: 40930
+  income: 40930,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Mississippi',
-  gender: 'Male',
-  income: 31700
+  income: 31700,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Missouri',
-  gender: 'Male',
-  income: 35628
+  income: 35628,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Montana',
-  gender: 'Male',
-  income: 32489
+  income: 32489,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Nebraska',
-  gender: 'Male',
-  income: 36817
+  income: 36817,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Nevada',
-  gender: 'Male',
-  income: 33560
+  income: 33560,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'New Hampshire',
-  gender: 'Male',
-  income: 42344
+  income: 42344,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'New Jersey',
-  gender: 'Male',
-  income: 46574
+  income: 46574,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'New Mexico',
-  gender: 'Male',
-  income: 30564
+  income: 30564,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'New York',
-  gender: 'Male',
-  income: 40570
+  income: 40570,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'North Carolina',
-  gender: 'Male',
-  income: 32379
+  income: 32379,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'North Dakota',
-  gender: 'Male',
-  income: 42186
+  income: 42186,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Ohio',
-  gender: 'Male',
-  income: 36958
+  income: 36958,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Oklahoma',
-  gender: 'Male',
-  income: 35488
+  income: 35488,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Oregon',
-  gender: 'Male',
-  income: 34277
+  income: 34277,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Pennsylvania',
-  gender: 'Male',
-  income: 39778
+  income: 39778,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Rhode Island',
-  gender: 'Male',
-  income: 40264
+  income: 40264,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'South Carolina',
-  gender: 'Male',
-  income: 31974
+  income: 31974,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'South Dakota',
-  gender: 'Male',
-  income: 35574
+  income: 35574,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Tennessee',
-  gender: 'Male',
-  income: 32734
+  income: 32734,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Texas',
-  gender: 'Male',
-  income: 36598
+  income: 36598,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Utah',
-  gender: 'Male',
-  income: 36791
+  income: 36791,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Vermont',
-  gender: 'Male',
-  income: 35502
+  income: 35502,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Virginia',
-  gender: 'Male',
-  income: 41421
+  income: 41421,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Washington',
-  gender: 'Male',
-  income: 41859
+  income: 41859,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'West Virginia',
-  gender: 'Male',
-  income: 33822
+  income: 33822,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Wisconsin',
-  gender: 'Male',
-  income: 37774
+  income: 37774,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Wyoming',
-  gender: 'Male',
-  income: 42376
+  income: 42376,
+  gender: 'Male'
 })
 db.Graph.insert({
   location: 'Alabama',
-  gender: 'Female',
-  income: 22998
+  income: 22998,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Alaska',
-  gender: 'Female',
-  income: 29648
+  income: 29648,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Arizona',
-  gender: 'Female',
-  income: 25860
+  income: 25860,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Arkansas',
-  gender: 'Female',
-  income: 22642
+  income: 22642,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'California',
-  gender: 'Female',
-  income: 27038
+  income: 27038,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Colorado',
-  gender: 'Female',
-  income: 28642
+  income: 28642,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Connecticut',
-  gender: 'Female',
-  income: 32701
+  income: 32701,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'DC',
-  gender: 'Female',
-  income: 45201
+  income: 45201,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Delaware',
-  gender: 'Female',
-  income: 30711
+  income: 30711,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Florida',
-  gender: 'Female',
-  income: 25328
+  income: 25328,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Georgia',
-  gender: 'Female',
-  income: 25277
+  income: 25277,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Hawaii',
-  gender: 'Female',
-  income: 30911
+  income: 30911,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Idaho',
-  gender: 'Female',
-  income: 19349
+  income: 19349,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Illinois',
-  gender: 'Female',
-  income: 27501
+  income: 27501,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Indiana',
-  gender: 'Female',
-  income: 23449
+  income: 23449,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Iowa',
-  gender: 'Female',
-  income: 25007
+  income: 25007,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Kansas',
-  gender: 'Female',
-  income: 24650
+  income: 24650,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Kentucky',
-  gender: 'Female',
-  income: 23160
+  income: 23160,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Louisiana',
-  gender: 'Female',
-  income: 23460
+  income: 23460,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Maine',
-  gender: 'Female',
-  income: 25045
+  income: 25045,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Maryland',
-  gender: 'Female',
-  income: 35647
+  income: 35647,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Massachusetts',
-  gender: 'Female',
-  income: 31845
+  income: 31845,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Michigan',
-  gender: 'Female',
-  income: 22803
+  income: 22803,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Minnesota',
-  gender: 'Female',
-  income: 29658
+  income: 29658,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Mississippi',
-  gender: 'Female',
-  income: 22381
+  income: 22381,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Missouri',
-  gender: 'Female',
-  income: 24872
+  income: 24872,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Montana',
-  gender: 'Female',
-  income: 22262
+  income: 22262,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Nebraska',
-  gender: 'Female',
-  income: 25264
+  income: 25264,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Nevada',
-  gender: 'Female',
-  income: 26848
+  income: 26848,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'New Hampshire',
-  gender: 'Female',
-  income: 30621
+  income: 30621,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'New Jersey',
-  gender: 'Female',
-  income: 31765
+  income: 31765,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'New Mexico',
-  gender: 'Female',
-  income: 21976
+  income: 21976,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'New York',
-  gender: 'Female',
-  income: 30878
+  income: 30878,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'North Carolina',
-  gender: 'Female',
-  income: 25123
+  income: 25123,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'North Dakota',
-  gender: 'Female',
-  income: 26799
+  income: 26799,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Ohio',
-  gender: 'Female',
-  income: 24873
+  income: 24873,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Oklahoma',
-  gender: 'Female',
-  income: 22889
+  income: 22889,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Oregon',
-  gender: 'Female',
-  income: 24310
+  income: 24310,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Pennsylvania',
-  gender: 'Female',
-  income: 26505
+  income: 26505,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Rhode Island',
-  gender: 'Female',
-  income: 30200
+  income: 30200,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'South Carolina',
-  gender: 'Female',
-  income: 23796
+  income: 23796,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'South Dakota',
-  gender: 'Female',
-  income: 25063
+  income: 25063,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Tennessee',
-  gender: 'Female',
-  income: 23982
+  income: 23982,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Texas',
-  gender: 'Female',
-  income: 25264
+  income: 25264,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Utah',
-  gender: 'Female',
-  income: 21143
+  income: 21143,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Vermont',
-  gender: 'Female',
-  income: 26541
+  income: 26541,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Virginia',
-  gender: 'Female',
-  income: 30119
+  income: 30119,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Washington',
-  gender: 'Female',
-  income: 28451
+  income: 28451,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'West Virginia',
-  gender: 'Female',
-  income: 22951
+  income: 22951,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Wisconsin',
-  gender: 'Female',
-  income: 26173
+  income: 26173,
+  gender: 'Female'
 })
 db.Graph.insert({
   location: 'Wyoming',
+  income: 22526,
+  gender: 'Female'
+})
+
+
+//income by gender and race
+db.Graph.insert({
+  income: 51388,
+  gender: 'Male',
+  race: 'White'
+})
+db.Graph.insert({
+  income: 40905,
   gender: 'Female',
-  income: 22526
+  race: 'White'
+})
+db.Graph.insert({
+  income: 38243,
+  gender: 'Male',
+  race: 'African-Armerican/Black'
+})
+db.Graph.insert({
+  income: 34426,
+  gender: 'Female',
+  race: 'African-Armerican/Black'
+})
+db.Graph.insert({
+  income: 36465,
+  gender: 'Male',
+  race: 'American-Indian/Alaska-Native'
+})
+db.Graph.insert({
+  income: 31810,
+  gender: 'Female',
+  race: 'American-Indian/Alaska-Native'
+})
+db.Graph.insert({
+  income: 60897,
+  gender: 'Male',
+  race: 'Asian'
+})
+db.Graph.insert({
+  income: 49628,
+  gender: 'Female',
+  race: 'Asian'
+})
+db.Graph.insert({
+  income: 39510,
+  gender: 'Male',
+  race: 'Native-Hawaiian/Pacific-Islander'
+})
+db.Graph.insert({
+  income: 33091,
+  gender: 'Female',
+  race: 'Native-Hawaiian/Pacific-Islander'
+})
+db.Graph.insert({
+  income: 31567,
+  gender: 'Male',
+  race: 'Other'
+})
+db.Graph.insert({
+  income: 27129,
+  gender: 'Female',
+  race: 'Other'
+})
+
+// income by gender/occupation
+db.Graph.insert({
+  income: 80809,
+  gender: 'Male',
+  occupation: 'Management occupations'
+})
+db.Graph.insert({
+  income: 61138,
+  gender: 'Female',
+  occupation: 'Management occupations'
+})
+db.Graph.insert({
+  income: 71816,
+  gender: 'Male',
+  occupation: 'Business and financial operations occupations'
+})
+db.Graph.insert({
+  income: 55043,
+  gender: 'Female',
+  occupation: 'Business and financial operations occupations'
+})
+db.Graph.insert({
+  income: 82130,
+  gender: 'Male',
+  occupation: 'Computer and mathematical occupations'
+})
+db.Graph.insert({
+  income: 71378,
+  gender: 'Female',
+  occupation: 'Computer and mathematical occupations'
+})
+db.Graph.insert({
+  income: 81198,
+  gender: 'Male',
+  occupation: 'Architecture and engineering occupations'
+})
+db.Graph.insert({
+  income: 70435,
+  gender: 'Female',
+  occupation: 'Architecture and engineering occupations'
+})
+db.Graph.insert({
+  income: 70726,
+  gender: 'Male',
+  occupation: 'Life, physical, and social science occupations'
+})
+db.Graph.insert({
+  income: 59905,
+  gender: 'Female',
+  occupation: 'Life, physical, and social science occupations'
+})
+db.Graph.insert({
+  income: 45658,
+  gender: 'Male',
+  occupation: 'Community and social services occupations'
+})
+db.Graph.insert({
+  income: 41893,
+  gender: 'Female',
+  occupation: 'Community and social services occupations'
+})
+db.Graph.insert({
+  income: 120270,
+  gender: 'Male',
+  occupation: 'Legal occupations'
+})
+db.Graph.insert({
+  income: 64121,
+  gender: 'Female',
+  occupation: 'Legal occupations'
+})
+db.Graph.insert({
+  income: 55772,
+  gender: 'Male',
+  occupation: 'Education, training, and library occupations'
+})
+db.Graph.insert({
+  income: 45789,
+  gender: 'Female',
+  occupation: 'Education, training, and library occupations'
+})
+db.Graph.insert({
+  income: 55746,
+  gender: 'Male',
+  occupation: 'Arts, design, entertainment, sports, and media occupations'
+})
+db.Graph.insert({
+  income: 47131,
+  gender: 'Female',
+  occupation: 'Arts, design, entertainment, sports, and media occupations'
+})
+db.Graph.insert({
+  income: 80084,
+  gender: 'Male',
+  occupation: 'Healthcare practitioner and technical occupations'
+})
+db.Graph.insert({
+  income: 56629,
+  gender: 'Female',
+  occupation: 'Healthcare practitioner and technical occupations'
+})
+db.Graph.insert({
+  income: 30921,
+  gender: 'Male',
+  occupation: 'Healthcare support occupations'
+})
+db.Graph.insert({
+  income: 27170,
+  gender: 'Female',
+  occupation: 'Healthcare support occupations'
+})
+db.Graph.insert({
+  income: 52118,
+  gender: 'Male',
+  occupation: 'Protective service occupations'
+})
+db.Graph.insert({
+  income: 40787,
+  gender: 'Female',
+  occupation: 'Protective service occupations'
+})
+db.Graph.insert({
+  income: 23729,
+  gender: 'Male',
+  occupation: 'Food preparation and serving related occupations'
+})
+db.Graph.insert({
+  income: 20620,
+  gender: 'Female',
+  occupation: 'Food preparation and serving related occupations'
+})
+db.Graph.insert({
+  income: 28980,
+  gender: 'Male',
+  occupation: 'Building and ground cleaning and maintenance occupations'
+})
+db.Graph.insert({
+  income: 21421,
+  gender: 'Female',
+  occupation: 'Building and ground cleaning and maintenance occupations'
+})
+db.Graph.insert({
+  income: 29220,
+  gender: 'Male',
+  occupation: 'Personal care and service occupations'
+})
+db.Graph.insert({
+  income: 22718,
+  gender: 'Female',
+  occupation: 'Personal care and service occupations'
+})
+db.Graph.insert({
+  income: 50928,
+  gender: 'Male',
+  occupation: 'Sales and related occupations'
+})
+db.Graph.insert({
+  income: 32588,
+  gender: 'Female',
+  occupation: 'Sales and related occupations'
+})
+db.Graph.insert({
+  income: 39077,
+  gender: 'Male',
+  occupation: 'Office and administrative support occupations'
+})
+db.Graph.insert({
+  income: 34962,
+  gender: 'Female',
+  occupation: 'Office and administrative support occupations'
+})
+db.Graph.insert({
+  income: 26962,
+  gender: 'Male',
+  occupation: 'Farming, fishing, and forestry occupations'
+})
+db.Graph.insert({
+  income: 20606,
+  gender: 'Female',
+  occupation: 'Farming, fishing, and forestry occupations'
+})
+db.Graph.insert({
+  income: 40300,
+  gender: 'Male',
+  occupation: 'Construction and extraction occupations'
+})
+db.Graph.insert({
+  income: 35673,
+  gender: 'Female',
+  occupation: 'Construction and extraction occupations'
+})
+db.Graph.insert({
+  income: 45515,
+  gender: 'Male',
+  occupation: 'Installation, maintenance, and repair occupations'
+})
+db.Graph.insert({
+  income: 41070,
+  gender: 'Female',
+  occupation: 'Installation, maintenance, and repair occupations'
+})
+db.Graph.insert({
+  income: 40435,
+  gender: 'Male',
+  occupation: 'Production occupations'
+})
+db.Graph.insert({
+  income: 27256,
+  gender: 'Female',
+  occupation: 'Production occupations'
+})
+db.Graph.insert({
+  income: 42204,
+  gender: 'Male',
+  occupation: 'Transportation occupations'
+})
+db.Graph.insert({
+  income: 31533,
+  gender: 'Female',
+  occupation: 'Transportation occupations'
+})
+db.Graph.insert({
+  income: 31092,
+  gender: 'Male',
+  occupation: 'Material moving occupations'
+})
+db.Graph.insert({
+  income: 24835,
+  gender: 'Female',
+  occupation: 'Material moving occupations'
 })

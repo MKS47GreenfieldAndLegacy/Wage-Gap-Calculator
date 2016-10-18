@@ -12,9 +12,7 @@ var graphSchema = mongoose.Schema({
   //occupation optional
   occupation: String,
   //race optional
-  race: String,
-  //age optional
-  age: Number,
+  race: String
 });
 
 var Graph = mongoose.model('Graph', graphSchema);
