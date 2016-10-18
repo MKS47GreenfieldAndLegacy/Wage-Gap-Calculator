@@ -2,7 +2,7 @@
 //since they share so much code in common
 
 angular.module('wageGap.makestatesgraph', [])
-.controller('MakeStatesGraphController', function ($scope) {
+.controller('MakeStatesGraphController', ['$scope', '$http' function ($scope, $http) {
 
   $scope.data = {
     selected: ['Gender'],
@@ -43,7 +43,8 @@ angular.module('wageGap.makestatesgraph', [])
         'Material moving occupations'
       ],
       Race: ['White','African-American/Black','American Indian/Alaskan Native','Asian','Pacific Islander','Latino','Other']
-    }
+    },
+    person: {}
   };
 
   //initializes empty profiles with selected variables on choosing the number of people to compare
@@ -56,11 +57,20 @@ angular.module('wageGap.makestatesgraph', [])
       $scope.data.selected.forEach(function(variable) {
         $scope.data.profiles[i][variable] = null;
       });
-      console.log($scope.data.profiles[i]);
     }
   };
 
+  $scope.query = function () {
+    $http({
+      method: 'GET',
+      url: '/graph',
+      data: $scope.data.person
+    });
+    console.log($scope.data.person);
+  };
+
   //toggles checkboxes
+  //doesn't toggle gender (auto-included in current model)
   $scope.toggle = function (item, list) {
     if(item !== 'Gender'){
       var i = list.indexOf(item);

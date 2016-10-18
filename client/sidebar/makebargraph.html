@@ -3,10 +3,16 @@
     <fieldset class="variables">
       <legend>Choose extra attribute to compare (gender included in all):</legend>
       <div ng-repeat="variable in data.potentials">
-        <label>{{variable}}<input type="checkbox" ng-checked="exists(variable, data.selected)" ng-click="toggle(variable, data.selected)"/></label>
+        <label>{{variable}}
+          <input
+            type="checkbox"
+            ng-checked="exists(variable, data.selected)"
+            ng-click="toggle(variable, data.selected)"
+          />
+        </label>
       </div>
     </fieldset>
-    <label>How many people do you wish to compare?
+    <label>How many people's profiles do you wish to compare?
       <select
         ng-model="data.profilesnum"
         ng-change="initializeProfiles()"
@@ -26,7 +32,15 @@
       <fieldset class="values">
         <legend>Person {{person.number}}</legend>
         <div ng-repeat="variable in data.selected">
-          <label>{{variable}}<select ng-model="person[variable]" ng-options="option as option for option in data.options[variable]"></select></label>
+          <label>{{variable}}
+            <select
+              class="value"
+              ng-model="data.person[variable]"
+              ng-options="option as option for option in data.options[variable]"
+              ng-change="query()"
+            >
+            </select>
+          </label>
         </div>
       </fieldset>
     </div>

@@ -3,7 +3,7 @@
 
 
 angular.module('wageGap.makebargraph', [])
-.controller('MakeBarGraphController', ['$scope', function ($scope) {
+.controller('MakeBarGraphController', ['$scope', '$http' function ($scope, $http) {
 
   $scope.data = {
     selected: ['Gender'],
@@ -62,7 +62,6 @@ angular.module('wageGap.makebargraph', [])
       $scope.data.selected.forEach(function(variable) {
         $scope.data.profiles[i][variable] = null;
       });
-      console.log($scope.data.profiles[i]);
     }
   };
 
@@ -76,6 +75,15 @@ angular.module('wageGap.makebargraph', [])
         list.push(item);
       }
     }
+  };
+
+  $scope.query = function () {
+    $http({
+      method: 'GET',
+      url: '/graph',
+      data: $scope.data.person
+    });
+    console.log($scope.data.person);
   };
 
   //checks if an variable is in selected array to display it as checked or not
