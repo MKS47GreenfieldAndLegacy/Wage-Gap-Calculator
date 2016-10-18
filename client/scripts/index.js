@@ -17,14 +17,14 @@ var wageGap = angular.module('wageGap', [
     .state('home', {
       templateUrl: './../index.html',
       url: '/',
-      controller: 'SidebarController'
+      abstract: true
     })
-    .state('home.bargraph', {
+    .state('bargraph', {
       templateUrl: './../sidebar/makebargraph.html',
       url: '/bargraph',
       controller: 'MakeBarGraphController'
     })
-    .state('home.statesgraph', {
+    .state('statesgraph', {
       templateUrl: './../sidebar/makestatesgraph.html',
       url: '/statesgraph',
       controller: 'MakeStatesGraphController'
