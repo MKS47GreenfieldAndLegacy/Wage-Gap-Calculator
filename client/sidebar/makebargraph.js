@@ -3,7 +3,7 @@
 
 
 angular.module('wageGap.makebargraph', [])
-.controller('MakeBarGraphController', ['$scope', '$http' function ($scope, $http) {
+.controller('MakeBarGraphController', ['$scope', '$http', function ($scope, $http) {
 
   $scope.data = {
     selected: ['Gender'],
