@@ -49,8 +49,7 @@ angular.module('wageGap.makebargraph', [])
         "IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM",
         "NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"
       ]
-    },
-    person: {}
+    }
   };
 
   //initializes empty profiles with selected variables on choosing the number of people to compare
@@ -85,14 +84,21 @@ angular.module('wageGap.makebargraph', [])
   };
 
 //sends the query to the server
-  $scope.query = function () {
-    $http({
-      method: 'GET',
-      url: '/graph',
-      data: $scope.data.person
-    });
-    console.log($scope.data.person);
+$scope.query = function (profile, variable) {
+  //set the data to send as only gender and the currently selected other variable
+  //otherwise there are issues with old data still attached to the profile when changing variables
+  var dataToSend = {
+    Gender: profile.Gender
   };
+  dataToSend[variable] = profile[variable];
+
+  $http({
+    method: 'GET',
+    url: '/graph',
+    data: dataToSend
+  });
+  console.log(profile, dataToSend);
+};
 
   //checks if an variable is in selected array to display it as checked or not
   $scope.exists = function (item, list) {

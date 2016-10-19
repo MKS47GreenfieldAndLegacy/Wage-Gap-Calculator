@@ -43,8 +43,7 @@ angular.module('wageGap.makestatesgraph', [])
         'Material moving occupations'
       ],
       Race: ['White','African-American/Black','American Indian/Alaskan Native','Asian','Pacific Islander','Latino','Other']
-    },
-    person: {}
+    }
   };
 
   //initializes empty profiles with selected variables on choosing the number of people to compare
@@ -60,13 +59,20 @@ angular.module('wageGap.makestatesgraph', [])
     }
   };
 
-  $scope.query = function () {
+  $scope.query = function (profile, variable) {
+    //set the data to send as only gender and the currently selected other variable
+    //otherwise there are issues with old data still attached to the profile when changing variables
+    var dataToSend = {
+      Gender: profile.Gender
+    };
+    dataToSend[variable] = profile[variable];
+
     $http({
       method: 'GET',
       url: '/graph',
-      data: $scope.data.person
+      data: dataToSend
     });
-    console.log($scope.data.person);
+    console.log(profile, dataToSend);
   };
 
   //toggles checkboxes

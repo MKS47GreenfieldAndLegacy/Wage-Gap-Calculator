@@ -77,10 +77,10 @@
     .attr('x', -25)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
-    .text("Percent of Male Income");
+    .text("Percent of Male Income")
     .call(yAxis);
 
-  
+
 
   vis.selectAll('rect')
     .data(barData)
@@ -97,6 +97,3 @@
       return ((HEIGHT - MARGINS.bottom) - yRange(d.y));
     })
     .attr('fill', '#ff6666');
-
-
-

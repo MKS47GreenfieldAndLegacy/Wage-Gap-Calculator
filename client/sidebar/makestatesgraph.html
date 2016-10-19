@@ -36,9 +36,9 @@
           <label>{{variable}}
             <select
               class="value"
-              ng-model="data.person[variable]"
+              ng-model="person[variable]"
               ng-options="option as option for option in data.options[variable]"
-              ng-change="query()"
+              ng-change="query(person, variable)"
             >
             </select>
           </label>

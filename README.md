@@ -33,7 +33,7 @@ These additions make the tool both more informative generally and also more usef
 
 ### That'd be neat . . .
 
-In that vein, some future features we were hoping to add but have not yet had time to do so:
+In that vein, some **future features** we were hoping to add but have not yet had time to do so:
 - Allow for factoring in cost of living in certain areas (would make the tool have more utility for people trying to decide where to settle for their careers)
 - Allow for creating more varied, fully-fleshed out profiles, such as
   - Including more variables per profile

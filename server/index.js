@@ -10,6 +10,8 @@ var request = require('request');
 var app = express();
 module.exports = app;
 
+// mongoose.connect('mongodb://localhost/wagegap');
+
 app.use(bodyParser.json());
 app.use(express.static('client'));
 
@@ -22,7 +24,7 @@ app.get('/', function(req, res) {
 
 // occupation/gender | location/gender | race/gender
 app.get('/graph', function(req, res) {
-	var query = req.body;
+	var query = req.body;});
 
 	Graph.find(query, function(err, docs) {
 		console.log('sending query to db');
@@ -37,14 +39,11 @@ app.get('/graph', function(req, res) {
 		}
 	})
 
-	// if (req.body.firstname) {
-	//     query.firstname = req.body.firstname;
-	// }
-	// if (req.body.lastname) {
-	//     query.lastname = req.body.lastname;
-	// }
 
 });
+
+});
+
 
 
 // ORIGINAL API GET REQUEST HANDLER
