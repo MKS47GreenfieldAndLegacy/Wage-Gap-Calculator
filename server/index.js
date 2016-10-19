@@ -10,38 +10,19 @@ var request = require('request');
 var app = express();
 module.exports = app;
 
-// mongoose.connect('mongodb://localhost/wagegap');
-
 app.use(bodyParser.json());
 app.use(express.static('client'));
 
 
 // not sure if i need this or if express.static covers it ???
-// app.get('/', function(req, res) {
-//   res.sendFile(path.join(__dirname, '../client/index.html'));
-// });
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '../client/index.html'));
+});
 
 
 // occupation/gender | location/gender | race/gender
-// collection = Graph
 app.get('/graph', function(req, res) {
 	var query = req.body;
-
-	// if (req.body.firstname) {
-	//     query.firstname = req.body.firstname;
-	// }
-
-	// if (req.body.lastname) {
-	//     query.lastname = req.body.lastname;
-	// }
-// handle front-end get request
-// check for querystring in db
-	// if it exists, return relevant cache
-	// else call api
-		// then send data to front-end
-		// and send data to db to cache
-app.get('/data', function(req, res) {
-
 
 	Graph.find(query, function(err, docs) {
 		console.log('sending query to db');
@@ -56,10 +37,14 @@ app.get('/data', function(req, res) {
 		}
 	})
 
-
+	// if (req.body.firstname) {
+	//     query.firstname = req.body.firstname;
+	// }
+	// if (req.body.lastname) {
+	//     query.lastname = req.body.lastname;
+	// }
 
 });
-
 
 
 // ORIGINAL API GET REQUEST HANDLER
@@ -80,7 +65,9 @@ app.get('/data', function(req, res) {
 
 
 var port = process.env.PORT || 4040;
+
 app.listen(port);
+
 console.log('Listening on port', port);
 
 
@@ -90,7 +77,7 @@ console.log('Listening on port', port);
 // app.post('/repos/import', function (req, res) {
 //   // TODO
 //   req.body.forEach(function(repo) {
-//     knex('repos').insert({id: repo.id, url: repo.url, username: repo.user, repo_name: repo.repoName, stargazers: repo.gazers})
+//     knex('repos').insert({id: repo.id})
 //       .then(function(result) {
 //         console.log('end')
 //     })

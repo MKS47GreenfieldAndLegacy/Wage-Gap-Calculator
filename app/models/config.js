@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 //might need to change URI later
-mongoURI = 'mongodb://localhost/wagegap';
+mongoURI = 'mongodb://localhost';
 mongoose.connect(mongoURI);
 
 // Run in seperate terminal window using 'mongod'
