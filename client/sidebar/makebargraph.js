@@ -1,7 +1,6 @@
 //it would be good to refactor to not need two separate controllers/html skeletons for bar and state
 //since they share so much code in common
 
-
 angular.module('wageGap.makebargraph', [])
 .controller('MakeBarGraphController', ['$scope', '$http', function ($scope, $http) {
 
@@ -9,7 +8,7 @@ angular.module('wageGap.makebargraph', [])
     selected: ['Gender'],
     potentials: [
       // 'Age',//leaving out age to decrease the number of necessary API variables for basic skeleton
-      'Gender',
+      // 'Gender',//making age autoselected for skeleton version
       'Occupation',
       'Race',
       'State'
@@ -50,7 +49,8 @@ angular.module('wageGap.makebargraph', [])
         "IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM",
         "NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"
       ]
-    }
+    },
+    person: {}
   };
 
   //initializes empty profiles with selected variables on choosing the number of people to compare
@@ -66,17 +66,25 @@ angular.module('wageGap.makebargraph', [])
   };
 
   //toggles checkboxes
+  //doesn't toggle gender (auto-included in current model)
+  // $scope.toggle = function (item, list) {
+  //   if(item !== 'Gender'){
+  //     var i = list.indexOf(item);
+  //     if(i > -1){
+  //       list.splice(i, 1);
+  //     } else {
+  //       list.push(item);
+  //     }
+  //   }
+  // };
+
+  //for radio buttons (delete if switched to checkboxes)
   $scope.toggle = function (item, list) {
-    if(item !== 'Gender'){
-      var i = list.indexOf(item);
-      if(i > -1){
-        list.splice(i, 1);
-      } else {
-        list.push(item);
-      }
-    }
+    list.splice(1);
+    list.push(item);
   };
 
+//sends the query to the server
   $scope.query = function () {
     $http({
       method: 'GET',

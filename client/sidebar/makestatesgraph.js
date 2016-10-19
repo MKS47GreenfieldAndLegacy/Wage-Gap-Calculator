@@ -8,7 +8,7 @@ angular.module('wageGap.makestatesgraph', [])
     selected: ['Gender'],
     potentials: [
       // 'Age',//leaving out age to decrease the number of necessary API variables for basic skeleton
-      'Gender',
+      // 'Gender',//making age autoselected for skeleton version
       'Occupation',
       'Race'
     ],
@@ -71,15 +71,21 @@ angular.module('wageGap.makestatesgraph', [])
 
   //toggles checkboxes
   //doesn't toggle gender (auto-included in current model)
+  // $scope.toggle = function (item, list) {
+  //   if(item !== 'Gender'){
+  //     var i = list.indexOf(item);
+  //     if(i > -1){
+  //       list.splice(i, 1);
+  //     } else {
+  //       list.push(item);
+  //     }
+  //   }
+  // };
+
+  //for radio buttons (delete if switched to checkboxes)
   $scope.toggle = function (item, list) {
-    if(item !== 'Gender'){
-      var i = list.indexOf(item);
-      if(i > -1){
-        list.splice(i, 1);
-      } else {
-        list.push(item);
-      }
-    }
+    list.splice(1);
+    list.push(item);
   };
 
   //checks if an variable is in selected array to display it as checked or not

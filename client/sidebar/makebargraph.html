@@ -5,10 +5,11 @@
       <div ng-repeat="variable in data.potentials">
         <label>{{variable}}
           <input
-            type="checkbox"
-            ng-checked="exists(variable, data.selected)"
+            type="radio"
             ng-click="toggle(variable, data.selected)"
+            ng-checked="exists(variable, data.selected)"
           />
+
         </label>
       </div>
     </fieldset>

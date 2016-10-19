@@ -3,14 +3,14 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var fs = require('fs');
 var request = require('request');
-var mongoose = require('mongoose');
-var db = require('../app/models/config.js');
-var Graph = require('../app/models/graph-schema.js')
+// var mongoose = require('mongoose');
+// var db = require('../app/models/config.js');
+// var Graph = require('../app/models/graph-schema.js')
 
 var app = express();
 module.exports = app;
 
-mongoose.connect('mongodb://localhost/wagegap');
+// mongoose.connect('mongodb://localhost/wagegap');
 
 app.use(bodyParser.json());
 app.use(express.static('client'));
@@ -56,12 +56,14 @@ app.get('/data', function(req, res) {
 		}
 	})
 
-})
+
+
+});
 
 
 
 // ORIGINAL API GET REQUEST HANDLER
-// app.get('/data', function(req, res) {	
+// app.get('/data', function(req, res) {
 // // handle front-end get request
 // // check for querystring in db
 // 	// if it exists, return relevant cache
