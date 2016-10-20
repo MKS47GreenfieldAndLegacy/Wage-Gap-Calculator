@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
 <!-- All work in this directory modified from the original by Pasha https://github.com/NPashaP ,
 original to be found at http://bl.ocks.org/NPashaP/a74faf20b492ad377312 ,
 and thus it is protected and must remain free according to that original creators wishes
@@ -53,7 +56,7 @@ and https://www.gnu.org/licenses/quick-guide-gplv3.en.html-->
 		text-align:center;
 	}
 </style>
-<body>
+<div id="states">
 <div id="tooltip"></div><!-- div to hold tooltip. -->
 <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
 <script src="./uStates.js"></script> <!-- creates uStates. -->
@@ -91,6 +94,8 @@ and https://www.gnu.org/licenses/quick-guide-gplv3.en.html-->
 	uStates.draw("#statesvg", sampleData, tooltipHtml);
 
 	d3.select(self.frameElement).style("height", "600px");
+	d3.select('.main').insert('#states')
 </script>
 
-</body>
+</div>
+</html>

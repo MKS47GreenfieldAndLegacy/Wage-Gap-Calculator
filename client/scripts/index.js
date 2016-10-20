@@ -19,21 +19,20 @@ var wageGap = angular.module('wageGap', [
       url: '/',
       controller: 'SidebarController'
     })
-    .state('home.bargraph', {
+    .state('home.makebargraph', {
       templateUrl: './../sidebar/makebargraph.html',
       url: '/bargraph',
       controller: 'MakeBarGraphController'
     })
-    .state('home.statesgraph', {
+    .state('home.makestatesgraph', {
       templateUrl: './../sidebar/makestatesgraph.html',
       url: '/statesgraph',
       controller: 'MakeStatesGraphController'
     })
-    // .state('home.statesgraph', {
-    //   templateUrl: './../sidebar/makestatesgraph.html',
-    //   url: '/statesgraph',
-    //   controller: 'MakeStatesGraphController'
-    // });
+    .state('home.statesgraph', {
+      templateUrl: './../d3charts/states/statesgraph.html',
+      url: '/',
+    });
 }).run(function () {
 
 });

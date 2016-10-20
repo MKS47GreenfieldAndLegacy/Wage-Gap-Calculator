@@ -3,15 +3,15 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var fs = require('fs');
 var request = require('request');
-var mongoose = require('mongoose');
-var db = require('../app/models/config.js');
-var Graph = require('../app/models/graph-schema.js');
+// var mongoose = require('mongoose');
+// var db = require('../app/models/config.js');
+// var Graph = require('../app/models/graph-schema.js');
 
 
 var app = express();
 module.exports = app;
 
-mongoose.connect('mongodb://localhost/wagegap');
+// mongoose.connect('mongodb://localhost/wagegap');
 
 app.use(bodyParser.json());
 app.use(express.static('client'));
@@ -24,21 +24,22 @@ app.use(express.static('client'));
 
 
 // occupation/gender | location/gender | race/gender
-app.get('/graph', function(req, res) {
+app.post('/graph', function(req, res) {
 	var query = req.body;
-
-	Graph.find(query, function(err, docs) {
-		console.log('sending query to db');
-		if (err) {
-			console.log('error: ', err);
-			res.send('retrieval error');
-		}
-		else {
-			console.log('docs retrieved: ', docs);
-			res.json(docs);
-			console.log('send data')
-		}
-	})
+	console.log(query)
+	res.send(query)
+	// Graph.find(query, function(err, docs) {
+	// 	console.log('sending query to db');
+	// 	if (err) {
+	// 		console.log('error: ', err);
+	// 		res.send('retrieval error');
+	// 	}
+	// 	else {
+	// 		console.log('docs retrieved: ', docs);
+	// 		res.json(docs);
+	// 		console.log('send data')
+	// 	}
+	// })
 
 
 });

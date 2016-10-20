@@ -8,7 +8,7 @@ angular.module('wageGap.makebargraph', [])
     selected: ['Gender'],
     potentials: [
       // 'Age',//leaving out age to decrease the number of necessary API variables for basic skeleton
-      // 'Gender',//making age autoselected for skeleton version
+      // 'Gender',//making gender autoselected for skeleton version
       'Occupation',
       'Race',
       'State'
@@ -49,7 +49,8 @@ angular.module('wageGap.makebargraph', [])
         "IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM",
         "NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"
       ]
-    }
+    },
+    newGraphData: {}
   };
 
   //initializes empty profiles with selected variables on choosing the number of people to compare
@@ -93,11 +94,17 @@ $scope.query = function (profile, variable) {
   dataToSend[variable] = profile[variable];
 
   $http({
-    method: 'GET',
+    method: 'POST',
     url: '/graph',
     data: dataToSend
+  }).then(function (responseBody) {
+    console.log('res body data', responseBody.data);
+    $scope.newGraphData = responseBody.data;
+    console.log(profile);
+    $scope.data.newGraphData.id = profile.number;
+    console.log($scope.data.newGraphData.id);
   });
-  console.log(profile, dataToSend);
+  // console.log(profile, dataToSend);
 };
 
   //checks if an variable is in selected array to display it as checked or not
