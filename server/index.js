@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var fs = require('fs');
 var request = require('request');
-// var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 // var db = require('../app/models/config.js');
 // var Graph = require('../app/models/graph-schema.js')
 
@@ -17,14 +17,16 @@ app.use(express.static('client'));
 
 
 // not sure if i need this or if express.static covers it ???
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '../client/index.html'));
-});
+// app.get('/', function(req, res) {
+//   res.sendFile(path.join(__dirname, '../client/index.html'));
+// });
 
 
 // occupation/gender | location/gender | race/gender
 app.get('/graph', function(req, res) {
 	var query = req.body;});
+	console.log('request body: ', req.body);
+	var query = req.body;
 
 	Graph.find(query, function(err, docs) {
 		console.log('sending query to db');
@@ -38,10 +40,6 @@ app.get('/graph', function(req, res) {
 			console.log('send data')
 		}
 	})
-
-
-});
-
 });
 
 
