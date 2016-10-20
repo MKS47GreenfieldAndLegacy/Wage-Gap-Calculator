@@ -14,24 +14,15 @@ var wageGap = angular.module('wageGap', [
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
-    .state('home', {
-      templateUrl: './../index.html',
-      url: '/',
-      controller: 'SidebarController'
-    })
-    .state('home.makebargraph', {
+    .state('makebargraph', {
       templateUrl: './../sidebar/makebargraph.html',
       url: '/bargraph',
       controller: 'MakeBarGraphController'
     })
-    .state('home.makestatesgraph', {
+    .state('makestatesgraph', {
       templateUrl: './../sidebar/makestatesgraph.html',
       url: '/statesgraph',
       controller: 'MakeStatesGraphController'
-    })
-    .state('home.statesgraph', {
-      templateUrl: './../d3charts/states/statesgraph.html',
-      url: '/',
     });
 }).run(function () {
 
