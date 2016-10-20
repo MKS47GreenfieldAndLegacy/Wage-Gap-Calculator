@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var init = require('../init-data.js')
 
 //might need to change URI later
-mongoURI = 'mongodb://localhost';
+mongoURI = 'mongodb://localhost/Graph';
 mongoose.connect(mongoURI);
 
 // Run in seperate terminal window using 'mongod'
