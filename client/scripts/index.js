@@ -28,7 +28,12 @@ var wageGap = angular.module('wageGap', [
       templateUrl: './../sidebar/makestatesgraph.html',
       url: '/statesgraph',
       controller: 'MakeStatesGraphController'
-    });
+    })
+    // .state('home.statesgraph', {
+    //   templateUrl: './../sidebar/makestatesgraph.html',
+    //   url: '/statesgraph',
+    //   controller: 'MakeStatesGraphController'
+    // });
 }).run(function () {
 
 });
