@@ -24,7 +24,7 @@ app.use(express.static('client'));
 
 // occupation/gender | location/gender | race/gender
 app.get('/graph', function(req, res) {
-	var query = req.body;});
+	var query = req.body;
 	console.log('request body: ', req.body);
 	var query = req.body;
 
