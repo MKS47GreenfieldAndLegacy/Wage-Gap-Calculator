@@ -23,22 +23,22 @@ app.get('/', function(req, res) {
 
 
 // occupation/gender | location/gender | race/gender
-app.get('/graph', function(req, res) {
-	var query = req.body;
-	console.log('request body', req);
+app.post('/graph', function(req, res) {
+  var query = req.body;
+  console.log('request body', req.body);
 
-	// Graph.find(query, function(err, docs) {
-	// 	console.log('sending query to db');
-	// 	if (err) {
-	// 		console.log('error: ', err);
-	// 		res.send('retrieval error');
-	// 	}
-	// 	else {
-	// 		console.log('docs retrieved: ', docs);
-	// 		res.json(docs);
-	// 		console.log('send data')
-	// 	}
-	// })
+ //  Graph.find(query, function(err, docs) {
+ //    console.log('sending query to db');
+	// if (err) {
+	//   console.log('error: ', err);
+	//   res.send('retrieval error');
+	// }  
+	// else {
+	//   console.log('docs retrieved: ', docs);
+	//   res.json(docs);
+	//   console.log('send data')
+	// }
+ //  })
 
 });
 
