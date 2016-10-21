@@ -1,27 +1,6 @@
 
 
-  var barData = [{
-    'x': '18-21',
-    'y': 78.51
-  }, {
-    'x': '22-25',
-    'y': 84.83
-  }, {
-    'x': '26-30',
-    'y': 82.99
-  }, {
-    'x': '31-35',
-    'y': 74.42
-  }, {
-    'x': '36-40',
-    'y': 67.39
-  }, {
-    'x': '41-50',
-    'y': 63.37
-  }, {
-    'x': '51-64',
-    'y': 62.22
-  }];
+//feed template array called 'barData with objects of x,y values'
 
   var vis = d3.select('.bar')
     .append('svg')
