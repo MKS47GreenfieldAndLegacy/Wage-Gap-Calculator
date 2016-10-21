@@ -3,14 +3,13 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var fs = require('fs');
 var request = require('request');
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 var db = require('../app/models/config.js');
 var Graph = require('../app/models/graph-schema.js');
 
 var app = express();
 module.exports = app;
 
-// mongoose.connect('mongodb://localhost/wagegap');
 
 app.use(bodyParser.json());
 app.use(express.static('client'));
@@ -32,9 +31,8 @@ app.post('/graph', function(req, res) {
 	}
 
 	console.log('query: ', query);
-	console.log(Graph.find(query, {income: true}))
 
-	Graph.find(query, function(err, docs) {
+	Graph.find(query, {"income": 1}, function(err, docs) {
 		console.log('sending query to db');
 		if (err) {
 			console.log('error: ', err);
@@ -49,9 +47,6 @@ app.post('/graph', function(req, res) {
 
 
 });
-
-// });
-
 
 
 // ORIGINAL API GET REQUEST HANDLER
@@ -78,25 +73,4 @@ app.listen(port);
 console.log('Listening on port', port);
 
 
-// --------------------------------------------
 
-
-// app.post('/repos/import', function (req, res) {
-//   // TODO
-//   req.body.forEach(function(repo) {
-//     knex('repos').insert({id: repo.id})
-//       .then(function(result) {
-//         console.log('end')
-//     })
-//   });
-//   res.sendStatus(200)
-// });
-
-
-// app.get('/repos', function (req, res) {
-//   knex('repos').orderBy('stargazers', 'desc')
-//     .then(function(data) {
-//       data = JSON.stringify(data);
-//       res.end(data);
-//      })
-// });
