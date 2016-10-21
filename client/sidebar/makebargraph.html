@@ -1,4 +1,4 @@
-<div>
+<div class="wrapper">
     <md-card class="variables">
       <md-card-title>
         <md-card-title-text>
@@ -13,43 +13,53 @@
       </md-radio-group>
     </md-card>
 
-    <md-card class="profilesnum">
+    <md-card>
       <md-card-title>
         <md-card-title-text>
           <span class="md-subhead">How many people's profiles do you wish to compare?</span>
         </md-card-title-text>
       </md-card-title>
-      <select
+      <md-select
         ng-model="data.profilesnum"
         ng-change="initializeProfiles()"
         required="true"
         class="profilesnum"
+        aria-label="ProfilesNumber"
       >
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
+        <md-option value="1">1</md-option>
+        <md-option value="2">2</md-option>
+        <md-option value="3">3</md-option>
+        <md-option value="4">4</md-option>
+      </md-select>
   </md-card>
 
   <div class="selects">
     <h5>Choose your values:</h5>
-    <div ng-repeat="person in data.profiles">
-      <fieldset class="values">
-        <legend>Person {{person.number}}</legend>
-        <div ng-repeat="variable in data.selected">
-          <label>{{variable}}
-            <select
+    <md-card ng-repeat="person in data.profiles">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-subhead">Person {{person.number}}</span>
+        </md-card-title-text>
+      </md-card-title>
+        <md-input-container ng-repeat="variable in data.selected">
+          <label>{{variable}}</label>
+            <md-select
               class="value"
               ng-model="person[variable]"
-              ng-options="option as option for option in data.options[variable]"
               ng-change="query(person, variable)"
             >
-            </select>
-          </label>
-        </div>
-      </fieldset>
-    </div>
+              <md-option
+                ng-repeat="option in data.options[variable]"
+                ng-model="option"
+                aria-label="{{option}}"
+                ng-value="option"
+              >
+                {{option}}
+              </md-option>
+
+          </md-select>
+        </md-input-container>
+        </md-card>
 
   </div>
 </div>

@@ -7,24 +7,10 @@
 aside.sidebar{
   float: left;
   height: 100vh;
-  border: 2px solid grey;
   width: 30%;
   display: inline-block;
-  position:fixed;
 }
 
-fieldset{
-  max-width: 100%;
-}
-select{
-  overflow: scroll;
-}
-fieldset{
-  max-width: 100%;
-}
-select{
-  overflow: scroll;
-}
 fieldset{
   max-width: 100%;
 }
@@ -32,9 +18,7 @@ select{
   text-overflow: ellipsis;
   width: 90%;
 }
-.profilesnum{
-  width: 20%;
-}
+
 .axis path, .axis line
 {
     fill: none;

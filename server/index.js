@@ -7,7 +7,6 @@ var mongoose = require('mongoose');
 var db = require('../app/models/config.js');
 var Graph = require('../app/models/graph-schema.js');
 
-
 var app = express();
 module.exports = app;
 
