@@ -1,19 +1,24 @@
 <div>
-  <div class="checkboxes" class="variables-choices">
-    <fieldset class="variables">
-      <legend>Choose extra attribute to compare (gender included in all):</legend>
-      <div ng-repeat="variable in data.potentials">
-        <label>{{variable}}
-          <input
-            type="radio"
-            ng-click="toggle(variable, data.selected)"
-            ng-checked="exists(variable, data.selected)"
-          />
+    <md-card class="variables">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Choose extra attribute to compare:</span>
+          <span class="md-subhead">(Gender included in all.)</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-radio-group ng-model="data.selected[1]" ng-repeat="variable in data.potentials">
+        <md-radio-button value={{variable}}>
+          {{variable}}
+        </md-radio-button>
+      </md-radio-group>
+    </md-card>
 
-        </label>
-      </div>
-    </fieldset>
-    <label>How many people's profiles do you wish to compare?
+    <md-card class="profilesnum">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-subhead">How many people's profiles do you wish to compare?</span>
+        </md-card-title-text>
+      </md-card-title>
       <select
         ng-model="data.profilesnum"
         ng-change="initializeProfiles()"
@@ -25,8 +30,8 @@
         <option value="3">3</option>
         <option value="4">4</option>
       </select>
-    </label>
-  </div>
+  </md-card>
+
   <div class="selects">
     <h5>Choose your values:</h5>
     <div ng-repeat="person in data.profiles">

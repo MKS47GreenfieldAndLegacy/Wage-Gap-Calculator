@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
 <!-- All work in this directory modified from the original by Pasha https://github.com/NPashaP ,
 original to be found at http://bl.ocks.org/NPashaP/a74faf20b492ad377312 ,
 and thus it is protected and must remain free according to that original creators wishes
@@ -8,6 +5,11 @@ under the GNU General Public License (GPLv3)
 for more details see https://www.gnu.org/licenses/gpl-3.0.html
 and https://www.gnu.org/licenses/quick-guide-gplv3.en.html-->
 
+<<<<<<< ab1e60df2d8165fc5cdfc335e0a21d6dcab59f45
+=======
+<!DOCTYPE html>
+<meta charset="utf-8">
+>>>>>>> got the states graph mostly set up, just needs data
 <style>
 	.state{
 		fill: none;
@@ -56,7 +58,7 @@ and https://www.gnu.org/licenses/quick-guide-gplv3.en.html-->
 		text-align:center;
 	}
 </style>
-<div id="states">
+<body>
 <div id="tooltip"></div><!-- div to hold tooltip. -->
 <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
 <script src="./uStates.js"></script> <!-- creates uStates. -->
@@ -94,8 +96,6 @@ and https://www.gnu.org/licenses/quick-guide-gplv3.en.html-->
 	uStates.draw("#statesvg", sampleData, tooltipHtml);
 
 	d3.select(self.frameElement).style("height", "600px");
-	d3.select('.main').insert('#states')
 </script>
 
-</div>
-</html>
+</body>
