@@ -53,7 +53,6 @@ app.post('/graph', function(req, res) {
 
 // });
 
-});
 
 
 // ORIGINAL API GET REQUEST HANDLER

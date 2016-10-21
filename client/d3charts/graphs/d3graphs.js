@@ -25,10 +25,10 @@
 
   var vis = d3.select('.bar')
     .append('svg')
-    .attr('width', 1000)
+    .attr('width', 800)
     .attr('height', 500)
 
-  var WIDTH = 1000
+  var WIDTH = 800
 
   var HEIGHT = 500
 

@@ -10,6 +10,7 @@ aside.sidebar{
   border: 2px solid grey;
   width: 30%;
   display: inline-block;
+  position:fixed;
 }
 
 fieldset{
@@ -51,7 +52,10 @@ select{
   color: black;
   font-size: 25px;
   display: inline-block;
-  margin-top: 40px;
+  margin-top: 80px;
+  margin-bottom: 100px;
   font-family: 'Arial';
   text-align: center;
+  border-top: solid gray 2px;
+  padding-top: 30px;
 }
