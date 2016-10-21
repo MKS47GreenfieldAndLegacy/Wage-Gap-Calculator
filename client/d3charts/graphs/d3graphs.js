@@ -5,7 +5,7 @@
   var vis = d3.select('.bar')
     .append('svg')
     .attr('width', 800)
-    .attr('height', 500)
+    .attr('height', 600)
 
   var WIDTH = 800
 
@@ -18,7 +18,7 @@
       left: 50
     }
 
-  var xRange = d3.scale.ordinal().rangeRoundBands([MARGINS.left, WIDTH - MARGINS.right], 0.1).domain(barData.map(function (d) {
+  var xRange = d3.scale.ordinal().rangeRoundBands([MARGINS.left+20, WIDTH - MARGINS.right], 0.1).domain(barData.map(function (d) {
       return d.x;
     }))
 
@@ -48,12 +48,12 @@
 
   vis.append('svg:g')
     .attr('class', 'y axis')
-    .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
+    .attr('transform', 'translate(' + (MARGINS.left+20) + ',0)')
     .call(yAxis)
     .append("text")
     .attr("transform", "rotate(-90)")
-    .attr("y", 6)
-    .attr('x', -25)
+    .attr("y", -60)
+    .attr('x', -120)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
     .text("Percent of Male Income")

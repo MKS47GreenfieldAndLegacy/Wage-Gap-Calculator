@@ -45,17 +45,19 @@ select{
 .axis text
 {
     font-family: 'Arial';
-    font-size: 13px;
+    font-size: 18px;
 }
+
 
 .bar {
   color: black;
   font-size: 25px;
   display: inline-block;
   margin-top: 80px;
-  margin-bottom: 100px;
   font-family: 'Arial';
   text-align: center;
   border-top: solid gray 2px;
   padding-top: 30px;
 }
+
+
