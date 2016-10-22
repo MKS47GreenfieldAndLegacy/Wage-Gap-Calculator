@@ -7,7 +7,8 @@ var wageGap = angular.module('wageGap', [
   // 'material.svgAssetsCache',
   'wageGap.sidebar',
   'wageGap.makestatesgraph',
-  'wageGap.makebargraph'
+  'wageGap.makebargraph',
+  'wageGap.home'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
@@ -17,6 +18,7 @@ var wageGap = angular.module('wageGap', [
     .state('home', {
       templateUrl: './../home.html',
       url: '/home',
+      controller: 'HomeController'
     })
     .state('makebargraph', {
       templateUrl: './../sidebar/makebargraph.html',
@@ -29,5 +31,5 @@ var wageGap = angular.module('wageGap', [
       controller: 'MakeStatesGraphController'
     });
 }).run(function () {
-
+//just in case we need to add something later to run here
 });

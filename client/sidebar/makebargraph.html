@@ -6,7 +6,7 @@
           <span class="md-subhead">(Gender included in all.)</span>
         </md-card-title-text>
       </md-card-title>
-      <md-radio-group ng-model="data.selected[1]" ng-repeat="variable in data.potentials">
+      <md-radio-group ng-click="newBarGraph()" ng-model="data.selected[1]" ng-repeat="variable in data.potentials">
         <md-radio-button value={{variable}}>
           {{variable}}
         </md-radio-button>

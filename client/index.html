@@ -22,6 +22,8 @@
     <script src="sidebar/makestatesgraph.js"></script>
     <script src="sidebar/sidebar.js"></script>
 
+    <script src="home.js"></script>
+
     <script src="scripts/index.js"></script>
 
   </head>
@@ -43,128 +45,121 @@
       <ui-view>
       </ui-view>
     </aside>
+
     <div class="main">
 
-
-  </body>
-
-  <footer>
-
-          <!-- <!DOCTYPE html>
-          <html> -->
-          <!-- <meta charset="utf-8"> -->
-          <!-- All work for this graph modified from the original by Pasha https://github.com/NPashaP ,
-          original to be found at http://bl.ocks.org/NPashaP/a74faf20b492ad377312 ,
-          and thus it is protected and must remain free according to that original creators wishes
-          under the GNU General Public License (GPLv3)
-          for more details see https://www.gnu.org/licenses/gpl-3.0.html
-          and https://www.gnu.org/licenses/quick-guide-gplv3.en.html-->
-
+      <!-- <!DOCTYPE html>
+      <html> -->
+      <!-- <meta charset="utf-8"> -->
+      <!-- All work for this graph modified from the original by Pasha https://github.com/NPashaP ,
+      original to be found at http://bl.ocks.org/NPashaP/a74faf20b492ad377312 ,
+      and thus it is protected and must remain free according to that original creators wishes
+      under the GNU General Public License (GPLv3)
+      for more details see https://www.gnu.org/licenses/gpl-3.0.html
+      and https://www.gnu.org/licenses/quick-guide-gplv3.en.html-->
+        <div class="states first">
           <style>
-          	.state{
-          		fill: none;
-          		stroke: #a9a9a9;
-          		stroke-width: 1;
-          	}
-          	.state:hover{
-          		fill-opacity:0.5;
-          	}
-          	#tooltip {
-          		position: absolute;
-          		text-align: center;
-          		padding: 20px;
-          		margin: 10px;
-          		font: 12px sans-serif;
-          		background: lightsteelblue;
-          		border: 1px;
-          		border-radius: 2px;
-          		pointer-events: none;
-          	}
-          	#tooltip h4{
-          		margin:0;
-          		font-size:14px;
-          	}
-          	#tooltip{
-          		background:rgba(0,0,0,0.9);
-          		border:1px solid grey;
-          		border-radius:5px;
-          		font-size:12px;
-          		width:auto;
-          		padding:4px;
-          		color:white;
-          		opacity:0;
-          	}
-          	#tooltip table{
-          		table-layout:fixed;
-          	}
-          	#tooltip tr td{
-          		padding:0;
-          		margin:0;
-          	}
-          	#tooltip tr td:nth-child(1){
-          		width:50px;
-          	}
-          	#tooltip tr td:nth-child(2){
-          		text-align:center;
-          	}
+          .state{
+            fill: none;
+            stroke: #a9a9a9;
+            stroke-width: 1;
+          }
+          .state:hover{
+            fill-opacity:0.5;
+          }
+          #tooltip {
+            position: absolute;
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 1px;
+            border-radius: 2px;
+            pointer-events: none;
+          }
+          #tooltip h4{
+            margin:0;
+            font-size:14px;
+          }
+          #tooltip{
+            background:rgba(0,0,0,0.9);
+            border:1px solid grey;
+            border-radius:5px;
+            font-size:12px;
+            width:auto;
+            padding:4px;
+            color:white;
+            opacity:0;
+          }
+          #tooltip table{
+            table-layout:fixed;
+          }
+          #tooltip tr td{
+            padding:0;
+            margin:0;
+          }
+          #tooltip tr td:nth-child(1){
+            width:50px;
+          }
+          #tooltip tr td:nth-child(2){
+            text-align:center;
+          }
           </style>
-          <div class="states">
           <div id="tooltip"></div><!-- div to hold tooltip. -->
           <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
           <script src="./uStates.js"></script> <!-- creates uStates. -->
           <script>
 
-          	function tooltipHtml(n, d){	/* function to create html content string in tooltip div. */
-          		return "<h4>"+n+"</h4><table>"+
-          			"<tr><td>Female</td><td>"+(d.female)+"</td></tr>"+
-          			"<tr><td>Female as % of Male</td><td>"+(d.percentage)+"</td></tr>"+
-          			"<tr><td>Male</td><td>"+(d.male)+"</td></tr>"+
-          			"</table>";
-          	}
+            function tooltipHtml(n, d){	/* function to create html content string in tooltip div. */
+              return "<h4>"+n+"</h4><table>"+
+                "<tr><td>Female</td><td>"+(d.female)+"</td></tr>"+
+                "<tr><td>Female as % of Male</td><td>"+(d.percentage)+"</td></tr>"+
+                "<tr><td>Male</td><td>"+(d.male)+"</td></tr>"+
+                "</table>";
+              }
 
-          	var sampleData ={};	/* Sample random data. */
-          	["HI", "AK", "FL", "SC", "GA", "AL", "NC", "TN", "RI", "CT", "MA",
-          	"ME", "NH", "VT", "NY", "NJ", "PA", "DE", "MD", "WV", "KY", "OH",
-          	"MI", "WY", "MT", "ID", "WA", "DC", "TX", "CA", "AZ", "NV", "UT",
-          	"CO", "NM", "OR", "ND", "SD", "NE", "IA", "MS", "IN", "IL", "MN",
-          	"WI", "MO", "AR", "OK", "KS", "LS", "VA"]
-          		.forEach(function(d){
-          			var one=Math.round(100*Math.random());
-          			var two=Math.round(100*Math.random());
+              var sampleData ={};	/* Sample random data. */
+              ["HI", "AK", "FL", "SC", "GA", "AL", "NC", "TN", "RI", "CT", "MA",
+              "ME", "NH", "VT", "NY", "NJ", "PA", "DE", "MD", "WV", "KY", "OH",
+              "MI", "WY", "MT", "ID", "WA", "DC", "TX", "CA", "AZ", "NV", "UT",
+              "CO", "NM", "OR", "ND", "SD", "NE", "IA", "MS", "IN", "IL", "MN",
+              "WI", "MO", "AR", "OK", "KS", "LS", "VA"]
+              .forEach(function(d){
+                var one=Math.round(100*Math.random());
+                var two=Math.round(100*Math.random());
                 var male=d3.max([one, two]);
                 var female=d3.min([one, two]);
-          			var percentage = Math.round(100*(female/male));
-          			sampleData[d]={
+                var percentage = Math.round(100*(female/male));
+                sampleData[d]={
                   female:female,
                   male:male,
-          				percentage:percentage,
+                  percentage:percentage,
                   color:d3.interpolate("#000000", "#008000")(percentage/100)};
-          		});
+                });
 
-          	/* draw states on id #statesvg */
-          	uStates.draw("#statesvg", sampleData, tooltipHtml);
+                /* draw states on id #statesvg */
+                uStates.draw("#statesvg", sampleData, tooltipHtml);
 
-          	d3.select(self.frameElement).style("height", "600px");
-          </script>
+                d3.select(self.frameElement).style("height", "600px");
+              </script>
 
-          </div>
+            </div>
 
-          <script type="text/javascript">
 
-            // d3.select('.main').insert('.states',':first-child');
-          </script>
-          <!-- </html> -->
-          
-          <div class="bar">Female Income by Age as Percent of Male Income
-            <script>
+        <div class="bar">Female Income by Age as Percent of Male Income
+          <script>
             var barData = [{'x': '18-21', 'y': 78.51}, {'x': '22-25', 'y': 84.83}, {'x': '26-30', 'y': 82.99}, {'x': '31-35', 'y': 74.42}, {'x': '36-40', 'y': 67.39}, {'x': '41-50', 'y': 63.37}, {'x': '51-64', 'y': 62.22}];
-            
-            </script>
-            <script src="d3charts/graphs/d3graphs.js"></script>
-          </div>
-
-
+          </script>
         </div>
+
+        <script src="d3charts/graphs/d3graphs.js"></script>
+
+      </div>
+  </body>
+
+  <footer>
+
   </footer>
 
 
