@@ -30,7 +30,7 @@ app.post('/graph', function(req, res) {
 
 	console.log('query: ', query);
 
-	Graph.find(query, {"income": 1}, function(err, docs) {
+	Graph.find(query, {"income": 1}).exec(function(err, docs) {
 		console.log('sending query to db');
 		if (err) {
 			console.log('error: ', err);

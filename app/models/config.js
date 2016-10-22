@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
-
+mongoose.Promise = global.Promise
 //might need to change URI later
-mongoURI = 'mongodb://localhost/graph';
+mongoURI = 'mongodb://localhost:27017/Graph';
 
 mongoose.connect(mongoURI);
 
