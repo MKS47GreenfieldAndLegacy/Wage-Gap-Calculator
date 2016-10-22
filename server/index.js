@@ -6,9 +6,7 @@ var request = require('request');
 // var mongoose = require('mongoose');
 var db = require('../app/models/config.js');
 var Graph = require('../app/models/graph-schema.js');
-
 var app = express();
-module.exports = app;
 
 
 app.use(bodyParser.json());
@@ -48,7 +46,6 @@ app.post('/graph', function(req, res) {
 
 });
 
-
 // ORIGINAL API GET REQUEST HANDLER
 // app.get('/data', function(req, res) {
 // // handle front-end get request
@@ -73,4 +70,25 @@ app.listen(port);
 console.log('Listening on port', port);
 
 
+// app.post('/repos/import', function (req, res) {
+//   // TODO
+//   req.body.forEach(function(repo) {
+//     knex('repos').insert({id: repo.id})
+//       .then(function(result) {
+//         console.log('end')
+//     })
+//   });
+//   res.sendStatus(200)
+// });
 
+
+// app.get('/repos', function (req, res) {
+//   knex('repos').orderBy('stargazers', 'desc')
+//     .then(function(data) {
+//       data = JSON.stringify(data);
+//       res.end(data);
+//      })
+// });
+
+
+module.exports = app;
