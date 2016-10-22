@@ -75,8 +75,8 @@ Available for non-commercial use with alteration and with proper citation of sou
 ### Further investigation
 
 Prior wage gap calculators (let us know if yours has been left out, we'll add it to the list):
-http://motto.time.com/4201637/pay-gap-calculator/
-http://equalpayma.com/en/Calculator
-http://www.wageproject.org/files/gap_calc.php
-https://www.omnicalculator.com/other/gender-wage-gap
-https://www.weforum.org/agenda/2015/11/gender-gap-calculator-2015/ (this one gives you your age when pay equality will be reached if current trends continue)
+- http://motto.time.com/4201637/pay-gap-calculator/
+- http://equalpayma.com/en/Calculator
+- http://www.wageproject.org/files/gap_calc.php
+- https://www.omnicalculator.com/other/gender-wage-gap
+- https://www.weforum.org/agenda/2015/11/gender-gap-calculator-2015/ (this one gives you your age when pay equality will be reached if current trends continue)
