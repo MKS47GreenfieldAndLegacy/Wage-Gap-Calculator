@@ -142,35 +142,35 @@ angular.module('wageGap.makebargraph', [])
       // age: ['15-19','20-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-65'],
       Gender: ['Male', 'Female'],
       Occupation: [
-        'Management occupations',
-        'Business and financial operations occupations',
-        'Computer and mathematical occupations',
-        'Architecture and engineering occupations',
-        'Life, physical, and social science occupations',
-        'Community and social services occupations',
-        'Legal occupations',
-        'Education, training, and library occupations',
-        'Arts, design, entertainment, sports, and media occupations',
-        'Healthcare practitioner and technical occupations',
-        'Healthcare support occupations',
-        'Protective service occupations',
-        'Food preparation and serving related occupations',
-        'Building and grounds cleaning and maintenance occupations',
-        'Personal care and service occupations',
-        'Sales and related occupations',
-        'Office and administrative support occupations',
-        'Farming, fishing, and forestry occupations',
-        'Construction and extraction occupations',
-        'Installation, maintenance, and repair occupations',
-        'Production occupations',
-        'Transportation occupations',
-        'Material moving occupations'
+        'Management',
+        'Business and financial operations',
+        'Computer and mathematical',
+        'Architecture and engineering',
+        'Life, physical, and social science',
+        'Community and social services',
+        'Legal',
+        'Education, training, and library',
+        'Arts, design, entertainment, sports, and media',
+        'Healthcare practitioner and technical',
+        'Healthcare support',
+        'Protective service',
+        'Food preparation and serving related',
+        'Building and grounds cleaning and maintenance',
+        'Personal care and service',
+        'Sales and related',
+        'Office and administrative support',
+        'Farming, fishing, and forestry',
+        'Construction and extraction',
+        'Installation, maintenance, and repair',
+        'Production',
+        'Transportation',
+        'Material moving'
       ],
-      Race: ['White','African-American/Black','American-Indian/Alaskan-Native','Asian','Native-Hawaiian/Pacific-Islander','Other'],
+      Race: ['White','African-American/Black','American Indian/Alaskan Native','Asian','Pacific Islander','Other'],
       State: [
-        "Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","DC","Florida","Georgia","Hawaii","Idaho",
-        "Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico",
-        "New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"
+        "AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID",
+        "IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM",
+        "NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"
       ]
     },
     newGraphData: {},
@@ -178,28 +178,6 @@ angular.module('wageGap.makebargraph', [])
   };
 
   $scope.newBarGraph = function () {
-    var attr = $scope.data.selected[1];
-    var dataToSend = $scope.data.profiles.map(function (profile) {
-      var prof = {
-        'Gender': profile.Gender
-      };
-      prof[attr] =  profile[attr];
-      return prof;
-    });
-
-    console.log('sending this data:', dataToSend);
-
-  //TODO: reseparate this out as part of a separate query function(see below)
-    $http({
-      method: 'POST',
-      url: '/graph',
-      data: dataToSend
-    }).then(function (responseBody) {
-      console.log('res body data', responseBody.data);
-      $scope.newGraphData = responseBody.data;
-      $scope.data.newGraphData.id = profile.number;
-      console.log($scope.data.newGraphData.id);
-
     //TODO: eventually it'd be good to refactor this so the repeated code is an external function
     d3.select('.main')
     .insert("div",":first-child")
@@ -207,8 +185,8 @@ angular.module('wageGap.makebargraph', [])
     .classed('bar', true);
     console.log('profilesnum?:', $scope.data.profilesnum);
 
-    if($scope.data.profilesnum === 0){
       var barData;
+      if($scope.data.profilesnum === 0){
         barData = $scope.data.options[$scope.data.selected[1]].reduce(function (arr, option) {
           //eventually we should be able to pull income data from server
           // var yVal;
@@ -229,7 +207,7 @@ angular.module('wageGap.makebargraph', [])
       console.log(barData);
 
       Graphs.barGraph(barData);
-    });
+
   };
 
   //initializes empty profiles with selected variables on choosing the number of people to compare
