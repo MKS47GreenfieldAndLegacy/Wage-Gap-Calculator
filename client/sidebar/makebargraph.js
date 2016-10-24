@@ -13,7 +13,7 @@ angular.module('wageGap.makebargraph', [])
       var vis = d3.select('.bar')
         .append('svg')
         .attr('width', 1000)
-        .attr('height', 600)
+        .attr('height', 900)
 
       var WIDTH = 800
 
