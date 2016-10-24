@@ -9,11 +9,18 @@ angular.module('wageGap.makebargraph', [])
 
 
     //feed template array called 'barData with objects of x,y values'
+    var Max = 0;
+    barData.forEach(function(data){
+      if(data.x.length>Max){
+        Max = data.x.length;
+      }
+    });
+    //^ Helps scale size of svg on page based on longest length of x-axis data
 
       var vis = d3.select('.bar')
         .append('svg')
         .attr('width', 1000)
-        .attr('height', 900)
+        .attr('height', 700 + Max*4)
 
       var WIDTH = 800
 
