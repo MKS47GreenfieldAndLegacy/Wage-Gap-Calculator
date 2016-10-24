@@ -14,18 +14,22 @@ angular.module('wageGap.makebargraph', [])
     var Max = 0;
     var svgWidth = 1000;
     var WIDTH = 800;
-    console.log('bar data',barData)
+    console.log('bar data length',barData.length)
 
     barData.forEach(function(data){
       if(data.x.length>Max){
         Max = data.x.length;
       }
-      if(data.x==="AL"){
-        svgWidth=1200;
-        WIDTH=1200;
+      if(barData.length === 102){
+        svgWidth=2400;
+        WIDTH=2400;
+      }
+      if(barData.length === 46){
+        svgWidth=1500;
+        WIDTH=1500;
       }
     });
-    //^ Helps scale size of svg on page based on longest length of x-axis and le
+    //^ Helps scale size of svg on page based on longest length of x-axis and when states are included
 
       var vis = d3.select('.bar')
         .append('svg')
@@ -163,7 +167,7 @@ angular.module('wageGap.makebargraph', [])
   $scope.newBarGraph = function () {
     //TODO: eventually it'd be good to refactor this so the repeated code is an external function
     d3.select('.main')
-    .insert('div','.states')
+    .insert("div",":first-child")
     .classed('first', true)
     .classed('bar', true);
     console.log('profilesnum?:', $scope.data.profilesnum);
