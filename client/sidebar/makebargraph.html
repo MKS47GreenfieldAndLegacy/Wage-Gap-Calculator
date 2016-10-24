@@ -6,8 +6,9 @@
           <span class="md-subhead">(Gender included in all.)</span>
         </md-card-title-text>
       </md-card-title>
-      <md-radio-group ng-click="newBarGraph()" ng-model="data.selected[1]" ng-repeat="variable in data.potentials">
+      <md-radio-group ng-model="data.selected[1]" ng-repeat="variable in data.potentials">
         <md-radio-button value={{variable}}>
+          <!-- eventually it'd be nice to have it be dynamic using: ng-click="newBarGraph()"  -->
           {{variable}}
         </md-radio-button>
       </md-radio-group>
@@ -46,13 +47,15 @@
             <md-select
               class="value"
               ng-model="person[variable]"
-              ng-change="query(person, variable)"
             >
+            <!-- eventually the ng-change should be query(person, variable)
+            OR ng-change="newBarGraph()"-->
               <md-option
                 ng-repeat="option in data.options[variable]"
                 ng-model="option"
                 aria-label="{{option}}"
                 ng-value="option"
+                ng-change=""
               >
                 {{option}}
               </md-option>
@@ -60,6 +63,6 @@
           </md-select>
         </md-input-container>
         </md-card>
-
+        <md-button class="md-raised" ng-click="newBarGraph()">Make Graph!</md-button>
   </div>
 </div>

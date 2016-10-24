@@ -1,28 +1,23 @@
-//TODO: it would be good to refactor to not need two separate controllers/html skeletons for bar and state
+//it would be good to refactor to not need two separate controllers/html skeletons for bar and state
 //since they share so much code in common
 
 angular.module('wageGap.makebargraph', [])
-//had a lot of difficulty getting this service to inject from the services directory
-//so ended up putting in this file, and finally got it working
 .factory('Graphs', function () {
 
-  var factory = {};
-  factory.barGraph = function (barData) {
+  var fac = {};
+  fac.barGraph = function (barData) {
 
 
     //feed template array called 'barData with objects of x,y values'
-    var Max = 0;
-    barData.forEach(function(data){
-      if(data.x.length>Max){
-        Max = data.x.length;
-      }
-    });
-    //^ Helps scale size of svg on page based on longest length of x-axis data
 
       var vis = d3.select('.bar')
         .append('svg')
         .attr('width', 1000)
-        .attr('height', 700 + Max*4)
+<<<<<<< 43d723a49b82915c2c709dae57843fbd7c696924
+        .attr('height', 900)
+=======
+        .attr('height', 600)
+>>>>>>> done for now
 
       var WIDTH = 800
 
@@ -78,7 +73,7 @@ angular.module('wageGap.makebargraph', [])
         .attr('x', -120)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Income (in thousands of dollars)")
+        .text("Percent of Male Income")
         .call(yAxis);
 
 
@@ -100,7 +95,7 @@ angular.module('wageGap.makebargraph', [])
         .attr('fill', '#ff6666');
   };
 
-  return factory;
+  return fac;
   })
 .controller('MakeBarGraphController', ['$scope', '$http', 'Graphs', function ($scope, $http, Graphs) {
 
@@ -150,40 +145,28 @@ angular.module('wageGap.makebargraph', [])
         "NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"
       ]
     },
-    newGraphData: {},
-    graphIndex: 0
+    newGraphData: {}
   };
 
   $scope.newBarGraph = function () {
-    //TODO: eventually it'd be good to refactor this so the repeated code is an external function
-    d3.select('.main')
-    .insert('div','.states')
-    .classed('first', true)
-    .classed('bar', true);
-    console.log('profilesnum?:', $scope.data.profilesnum);
+    console.log('hi');
+      d3.select('.main')
+        .insert('div','.first')
+        .classed('first', true)
+        .classed('bar', true);
+      console.log('graphs?:', Graphs);
 
-      var barData;
-      if($scope.data.profilesnum === 0){
-        barData = $scope.data.options[$scope.data.selected[1]].reduce(function (arr, option) {
-          //eventually we should be able to pull income data from server
-          // var yVal;
-          // var income = $scope.data.fullData.find(function (dataObj) {
-          //   return dataObj[$scope.data.selected[1]] === option;
-          // }).income;
-          return arr.concat([
-            {'x': 'Female ' + option, 'y': Math.abs(Math.random()*100)},
-            {'x': 'Male ' + option, 'y': Math.abs(Math.random()*100)}
-          ]);//currently using dummy data
-        },[]);
+      var data = $scope.data.options[$scope.data.selected[1]].map(function (option) {
+        var yVal;
+        // var income = $scope.data.fullData.find(function (dataObj) {
+        //   return dataObj[$scope.data.selected[1]] === option;
+        // }).income;
+          return {'x': option, 'y': Math.abs(Math.random()*100)};
+      });
 
-      } else {
-        barData = $scope.data.profiles.map(function (profile) {
-          return {'x': profile.Gender + ' ' + profile[$scope.data.selected[1]], 'y': Math.abs(Math.random()*100)}
-        });
-      }
-      console.log(barData);
+      Graphs.barGraph(data);
 
-      Graphs.barGraph(barData);
+      d3.select('.states').classed('first', false);
 
   };
 
@@ -208,11 +191,6 @@ $scope.query = function (profile, variable) {
   };
   dataToSend[variable] = profile[variable];
 
-
-//we couldn't get the database working but this ajax
-//does successfully send the data to the server and
-//get the response, as you'll see in the front and server-side
-//console logs
   $http({
     method: 'POST',
     url: '/graph',
