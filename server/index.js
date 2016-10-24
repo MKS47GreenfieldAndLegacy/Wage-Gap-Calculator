@@ -3,13 +3,45 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var fs = require('fs');
 var request = require('request');
-var db = require('../app/models/config.js');
-var Graph = require('../app/models/graph-schema.js');
+// var db = require('../app/models/config.js');
+// var Graph = require('../app/models/graph-schema.js');
 var app = express();
+var mongoose = require('mongoose');
 
 
 app.use(bodyParser.json());
 app.use(express.static('client'));
+
+mongoose.Promise = global.Promise
+//might need to change URI later
+mongoURI = 'mongodb://localhost:27017/test';
+
+// Run in seperate terminal window using 'mongod'
+
+// var Schema = mongoose.Schema;
+mongoose.connect(mongoURI);
+var db = mongoose.connection;
+db.once('open', function () {
+  console.log('Mongodb connection open');
+});
+
+db.on('error', console.error.bind(console, 'connection error:'));
+var graphSchema = new mongoose.Schema({
+  //location will be a state -- optional
+  location: { type: String },
+  //income will need to be part of every query
+  income: { type:Number, required: true },
+  //gender optional
+  gender: {type: String},
+  //occupation optional
+  occupation: {type: String},
+  //race optional
+  race: {type: String}
+});
+
+var Graph = mongoose.model('Graph', graphSchema, 'Graph');
+
+
 
 
 // pretty sure express.static handles this anyway
@@ -38,11 +70,11 @@ app.post('/graph', function(req, res) {
 		console.log('sending query to db');
 		if (err) {
 			console.log('error: ', err);
-			res.send('retrieval error');
+			return res.send('retrieval error');
 		}
 		else {
 			console.log('docs retrieved: ', docs);
-			res.json(docs);
+			return res.json(docs);
 			console.log('send data')
 		}
 	});
