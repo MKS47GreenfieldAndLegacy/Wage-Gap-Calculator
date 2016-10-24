@@ -177,14 +177,14 @@ angular.module('wageGap.makebargraph', [])
           //   return dataObj[$scope.data.selected[1]] === option;
           // }).income;
           return arr.concat([
-            {'x': 'Female ' + option, 'y': Math.abs(Math.random()*100)},
-            {'x': 'Male ' + option, 'y': Math.abs(Math.random()*100)}
+            {'x': 'Female ' + option, 'y': Math.abs(Math.random()*60+40)},
+            {'x': 'Male ' + option, 'y': Math.abs(Math.random()*60+40)}
           ]);//currently using dummy data
         },[]);
 
       } else {
         barData = $scope.data.profiles.map(function (profile) {
-          return {'x': profile.Gender + ' ' + profile[$scope.data.selected[1]], 'y': Math.abs(Math.random()*100)}
+          return {'x': profile.Gender + ' ' + profile[$scope.data.selected[1]], 'y': Math.abs(Math.random()*60+40)}
         });
       }
       console.log(barData);

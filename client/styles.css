@@ -44,4 +44,6 @@ select{
   padding-top: 30px;
 }
 
-
+.card-padding{
+  padding: 1rem;
+}

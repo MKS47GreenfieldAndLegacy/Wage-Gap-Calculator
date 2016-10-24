@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <md-card class="variables">
+    <md-card class="variables card-padding">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">Choose extra attribute to compare:</span>
@@ -12,9 +12,10 @@
           {{variable}}
         </md-radio-button>
       </md-radio-group>
+      <span class="md-subhead">You can compare specific profile or hit "Make Graph" now to see a comparison across this attribute.</span>
     </md-card>
 
-    <md-card>
+    <md-card class="card-padding">
       <md-card-title>
         <md-card-title-text>
           <span class="md-subhead">How many people's profiles do you wish to compare?</span>
@@ -32,11 +33,11 @@
         <md-option value="3">3</md-option>
         <md-option value="4">4</md-option>
       </md-select>
+      <span  class="md-subhead">Choose values for each profile</span>
   </md-card>
 
   <div class="selects">
-    <h5>Choose your values:</h5>
-    <md-card ng-repeat="person in data.profiles">
+    <md-card class="card-padding" ng-repeat="person in data.profiles">
       <md-card-title>
         <md-card-title-text>
           <span class="md-subhead">Person {{person.number}}</span>
