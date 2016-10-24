@@ -54,15 +54,18 @@ app.get('/', function(req, res) {
 // for the relevant entries in the database
 app.post('/graph', function(req, res) {
 	var query = req.body;
+  console.log('query before: ', query);
 
 	// the request query object has capitalized keys, but we need them
 	// to be lowercase to retrieve the database entries
-	for(var k in query){
-		query[k.toLowerCase()] = query[k];
-		delete query[k];
-	}
+  query.forEach(function (profile) {
+    for(var k in profile){
+      profile[k.toLowerCase()] = profile[k];
+      delete profile[k];
+    }
+  });
 
-	console.log('query: ', query);
+	console.log('query after: ', query);
 
 	// query Graph database for docs that match the query object's properties,
 	// get the relevant income property and send it back to front end
