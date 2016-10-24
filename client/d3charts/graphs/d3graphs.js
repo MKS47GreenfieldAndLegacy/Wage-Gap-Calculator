@@ -40,6 +40,15 @@
       .orient("left")
       .tickSubdivide(true);
 
+  var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function(d) {
+      return "<strong>Percent:</strong> <span style='color:orange'>"+d.y+"</span>";
+    });
+
+  vis.call(tip);
+
 
   vis.append('svg:g')
     .attr('class', 'x axis')
@@ -65,6 +74,7 @@
     .data(barData)
     .enter()
     .append('rect')
+    .attr('class','rect')
     .attr('x', function (d) {
       return xRange(d.x);
     })
@@ -75,4 +85,8 @@
     .attr('height', function (d) {
       return ((HEIGHT - MARGINS.bottom) - yRange(d.y));
     })
-    .attr('fill', '#ff6666');
+    .attr('fill', '#ff6666')
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide)
+    
+

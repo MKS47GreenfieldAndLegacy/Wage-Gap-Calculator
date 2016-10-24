@@ -67,6 +67,15 @@ angular.module('wageGap.makebargraph', [])
           .orient("left")
           .tickSubdivide(true);
 
+      var tip = d3.tip()
+        .attr('class', 'd3-tip')
+        .offset([-10, 0])
+        .html(function(d) {
+          return "<strong>Income:</strong> <span style='color:orange'>"+'$'+Math.round(d.y*1000).toLocaleString()+"</span>";
+        });
+
+      vis.call(tip);
+
 
       vis.append('svg:g')
         .attr('class', 'x axis')
@@ -97,6 +106,7 @@ angular.module('wageGap.makebargraph', [])
         .data(barData)
         .enter()
         .append('rect')
+        .attr('class','rect')
         .attr('x', function (d) {
           return xRange(d.x);
         })
@@ -107,8 +117,11 @@ angular.module('wageGap.makebargraph', [])
         .attr('height', function (d) {
           return ((HEIGHT - MARGINS.bottom) - yRange(d.y));
         })
-        .attr('fill', '#ff6666');
-  };
+        .attr('fill', '#ff6666')
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
+        
+};
 
   return factory;
   })
