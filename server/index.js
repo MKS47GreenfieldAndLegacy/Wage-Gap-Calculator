@@ -81,6 +81,7 @@ app.post('/graph', function(req, res) {
 			console.log('send data')
 		}
 	});
+  res.send();
 });
 
 

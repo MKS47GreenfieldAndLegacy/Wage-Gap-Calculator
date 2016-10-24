@@ -182,10 +182,10 @@ angular.module('wageGap.makebargraph', [])
       url: '/graph',
       data: dataToSend
     }).then(function (responseBody) {
-      console.log('res body data', responseBody.data);
+      console.log('res body data:', responseBody.data);
       $scope.newGraphData = responseBody.data;
-      $scope.data.newGraphData.id = profile.number;
-      console.log($scope.data.newGraphData.id);
+      // $scope.data.newGraphData.id = profile.number;
+      // console.log($scope.data.newGraphData.id);
 
     //TODO: eventually it'd be good to refactor this so the repeated code is an external function
     d3.select('.main')
@@ -209,11 +209,12 @@ angular.module('wageGap.makebargraph', [])
         },[]);
 
       } else {
+        console.log('with profiles')
         barData = $scope.data.profiles.map(function (profile) {
           return {'x': profile.Gender + ' ' + profile[$scope.data.selected[1]], 'y': Math.abs(Math.random()*60+40)}
         });
       }
-      console.log(barData);
+      console.log('bar data:', barData);
 
       Graphs.barGraph(barData);
     });
