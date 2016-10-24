@@ -167,11 +167,14 @@ angular.module('wageGap.makebargraph', [])
   $scope.newBarGraph = function () {
     var attr = $scope.data.selected[1];
     var dataToSend = $scope.data.profiles.map(function (profile) {
-      return {
-        'Gender': profile.Gender,
-        attr: profile[attr]
+      var prof = {
+        'Gender': profile.Gender
       };
+      prof[attr] =  profile[attr];
+      return prof;
     });
+
+    console.log('sending this data:', dataToSend);
 
   //TODO: reseparate this out as part of a separate query function(see below)
     $http({
@@ -191,8 +194,8 @@ angular.module('wageGap.makebargraph', [])
     .classed('bar', true);
     console.log('profilesnum?:', $scope.data.profilesnum);
 
+    if($scope.data.profilesnum === 0){
       var barData;
-      if($scope.data.profilesnum === 0){
         barData = $scope.data.options[$scope.data.selected[1]].reduce(function (arr, option) {
           //eventually we should be able to pull income data from server
           // var yVal;
