@@ -3,7 +3,6 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var fs = require('fs');
 var request = require('request');
-// var mongoose = require('mongoose');
 var db = require('../app/models/config.js');
 var Graph = require('../app/models/graph-schema.js');
 var app = express();
@@ -13,16 +12,19 @@ app.use(bodyParser.json());
 app.use(express.static('client'));
 
 
-// not sure if i need this or if express.static covers it ???
-// app.get('/', function(req, res) {
-//   res.sendFile(path.join(__dirname, '../client/index.html'));
-// });
+// pretty sure express.static handles this anyway
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '../client/index.html'));
+});
 
 
-// occupation/gender | location/gender | race/gender
+// POST request handler that takes an object from the user query and returns the income data
+// for the relevant entries in the database
 app.post('/graph', function(req, res) {
 	var query = req.body;
 
+	// the request query object has capitalized keys, but we need them
+	// to be lowercase to retrieve the database entries
 	for(var k in query){
 		query[k.toLowerCase()] = query[k];
 		delete query[k];
@@ -30,6 +32,8 @@ app.post('/graph', function(req, res) {
 
 	console.log('query: ', query);
 
+	// query Graph database for docs that match the query object's properties,
+	// get the relevant income property and send it back to front end
 	Graph.find(query, {"income": 1}).exec(function(err, docs) {
 		console.log('sending query to db');
 		if (err) {
@@ -42,13 +46,18 @@ app.post('/graph', function(req, res) {
 			console.log('send data')
 		}
 	});
-
-
 });
 
+
+///////////////////////////////////////////////////////////////////////////
 // ORIGINAL API GET REQUEST HANDLER
-// app.get('/data', function(req, res) {
-// // handle front-end get request
+// initally, we were going to make an api call for every user query and add
+// the response to the database - but we ended up just hard-coding data for
+// all the queries the user can make
+////////////////////////////////////////////////////////////////////////////
+
+
+// app.get('/graph', function(req, res) {
 // // check for querystring in db
 // 	// if it exists, return relevant cache
 // 	// else call api
@@ -68,27 +77,6 @@ var port = process.env.PORT || 4040;
 app.listen(port);
 
 console.log('Listening on port', port);
-
-
-// app.post('/repos/import', function (req, res) {
-//   // TODO
-//   req.body.forEach(function(repo) {
-//     knex('repos').insert({id: repo.id})
-//       .then(function(result) {
-//         console.log('end')
-//     })
-//   });
-//   res.sendStatus(200)
-// });
-
-
-// app.get('/repos', function (req, res) {
-//   knex('repos').orderBy('stargazers', 'desc')
-//     .then(function(data) {
-//       data = JSON.stringify(data);
-//       res.end(data);
-//      })
-// });
 
 
 module.exports = app;
