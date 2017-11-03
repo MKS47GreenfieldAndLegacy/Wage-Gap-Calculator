@@ -13,8 +13,8 @@ app.use(express.static('client'))
 
 mongoose.Promise = global.Promise
 // might need to change URI later
-mongoURI = process.env.MONGOLAB_URI
-
+mongoURI = 'mongodb://deployment:deploypass@ds133211.mlab.com:33211/wage-gap'
+console.log(mongoURI)
 // Run in seperate terminal window using 'mongod'
 
 // var Schema = mongoose.Schema;
