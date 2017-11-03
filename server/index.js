@@ -1,96 +1,88 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
-var fs = require('fs');
-var request = require('request');
+var express = require('express')
+var bodyParser = require('body-parser')
+var path = require('path')
+var fs = require('fs')
+var request = require('request')
 // var db = require('../app/models/config.js');
 // var Graph = require('../app/models/graph-schema.js');
-var app = express();
-var mongoose = require('mongoose');
+var app = express()
+var mongoose = require('mongoose')
 
-
-app.use(bodyParser.json());
-app.use(express.static('client'));
+app.use(bodyParser.json())
+app.use(express.static('client'))
 
 mongoose.Promise = global.Promise
-//might need to change URI later
-mongoURI = 'mongodb://localhost:27017/test';
+// might need to change URI later
+mongoURI = process.env.MONGOLAB_URI
 
 // Run in seperate terminal window using 'mongod'
 
 // var Schema = mongoose.Schema;
-mongoose.connect(mongoURI);
-var db = mongoose.connection;
+mongoose.connect(mongoURI)
+var db = mongoose.connection
 db.once('open', function () {
-  console.log('Mongodb connection open');
-});
+  console.log('Mongodb connection open')
+})
 
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', console.error.bind(console, 'connection error:'))
 var graphSchema = new mongoose.Schema({
-  //location will be a state -- optional
+  // location will be a state -- optional
   location: { type: String },
-  //income will need to be part of every query
-  income: { type:Number, required: true },
-  //gender optional
+  // income will need to be part of every query
+  income: { type: Number, required: true },
+  // gender optional
   gender: {type: String},
-  //occupation optional
+  // occupation optional
   occupation: {type: String},
-  //race optional
+  // race optional
   race: {type: String}
-});
+})
 
-var Graph = mongoose.model('Graph', graphSchema, 'Graph');
-
-
-
+var Graph = mongoose.model('Graph', graphSchema, 'Graph')
 
 // pretty sure express.static handles this anyway
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '../client/index.html'));
-});
-
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, '../client/index.html'))
+})
 
 // POST request handler that takes an object from the user query and returns the income data
 // for the relevant entries in the database
-app.post('/graph', function(req, res) {
-	var query = req.body;
-  console.log('query before: ', query);
+app.post('/graph', function (req, res) {
+  var query = req.body
+  console.log('query before: ', query)
 
 	// the request query object has capitalized keys, but we need them
 	// to be lowercase to retrieve the database entries
   query.forEach(function (profile) {
-    for(var k in profile){
-      profile[k.toLowerCase()] = profile[k];
-      delete profile[k];
+    for (var k in profile) {
+      profile[k.toLowerCase()] = profile[k]
+      delete profile[k]
     }
-  });
+  })
 
-	console.log('query after: ', query);
+  console.log('query after: ', query)
 
 	// query Graph database for docs that match the query object's properties,
 	// get the relevant income property and send it back to front end
-	Graph.find(query, {"income": 1}).exec(function(err, docs) {
-		console.log('sending query to db');
-		if (err) {
-			console.log('error: ', err);
-			return res.send('retrieval error');
-		}
-		else {
-			console.log('docs retrieved: ', docs);
-			return res.json(docs);
-			console.log('send data')
-		}
-	});
-});
+  Graph.find(query, {'income': 1}).exec(function (err, docs) {
+    console.log('sending query to db')
+    if (err) {
+      console.log('error: ', err)
+      return res.send('retrieval error')
+    } else {
+      console.log('docs retrieved: ', docs)
+      return res.json(docs)
+      console.log('send data')
+    }
+  })
+})
 
-
-///////////////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////////////
 // ORIGINAL API GET REQUEST HANDLER
 // initally, we were going to make an api call for every user query and add
 // the response to the database - but we ended up just hard-coding data for
 // all the queries the user can make
-////////////////////////////////////////////////////////////////////////////
-
+// //////////////////////////////////////////////////////////////////////////
 
 // app.get('/graph', function(req, res) {
 // // check for querystring in db
@@ -106,12 +98,10 @@ app.post('/graph', function(req, res) {
 // 		// and send data to db to cache
 // })
 
+var port = process.env.PORT || 4040
 
-var port = process.env.PORT || 4040;
+app.listen(port)
 
-app.listen(port);
+console.log('Listening on port', port)
 
-console.log('Listening on port', port);
-
-
-module.exports = app;
+module.exports = app
